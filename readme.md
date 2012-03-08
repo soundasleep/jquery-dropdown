@@ -48,9 +48,13 @@ http://http://labs.abeautifulsite.net/jquery-dropdown/
 You probably won’t need these, but they’re there just in case.
 
 `attach` – attach a dropdown to the selected trigger element(s); pass in the #dropdown-id as value
+
 `detach` – detach a dropdown from the selected trigger element(s)
+
 `enable` – enables the dropdown and removes the dropdown-disabled class from the trigger
+
 `disable` – disables the dropdown and adds the dropdown-disabled class to the trigger
+
 `hide` – hide the dropdown
 
 Example usage: `$('#trigger').dropdown('method', [value]);`
