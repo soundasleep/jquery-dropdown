@@ -12,12 +12,15 @@ http://http://labs.abeautifulsite.net/jquery-dropdown/
 
 ## Usage ##
 
-1. Include required files:
+* Include required files:
+
 ```html
 <link type="text/css" rel="stylesheet" src="jquery.dropdown.css" />`
 <script type="text/javascript" src="jquery.dropdown.js"></script>`
 ```
-2. Create a dropdown and insert it before the closing body tag:
+
+* Create a dropdown and insert it before the closing body tag:
+
 ```html
 <div id="dropdown-1" class="dropdown-menu has-tip">
     <ul>
@@ -31,11 +34,14 @@ http://http://labs.abeautifulsite.net/jquery-dropdown/
     </ul>
 </div>
 ```
-3. Add the `data-dropdown` attribute to any HTML element:
+
+* Add the `data-dropdown` attribute to any HTML element:
+
 ```html
 <a href="#" data-dropdown="#dropdown-1">dropdown</a>
 ```
-4. There’s no need to initialize it! The plugin will handle everything from here.
+
+* There’s no need to initialize it! The plugin will handle everything from here.
 
 ## API ##
 
