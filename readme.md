@@ -8,7 +8,7 @@ Dual licensed under the MIT or GPL Version 2 licenses
 
 ## Demo ##
 
-http://http://labs.abeautifulsite.net/jquery-dropdown/
+http://labs.abeautifulsite.net/jquery-dropdown/
 
 ## Usage ##
 
