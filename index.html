@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Bootstrap-style Dropdowns</title>
+	<meta charset="utf-8" />
+	<link type="text/css" rel="stylesheet" href="jquery.dropdown.css" />
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.dropdown.js"></script>
+	<style type="text/css">
+		
+		/* This CSS is for the demo page only */
+		
+		BODY {
+			width: 800px;
+			font: 14px sans-serif;
+			line-height: 1.4;
+			margin: 20px auto;
+		}
+		
+		H2 {
+			font-weight: normal;
+			border-bottom: solid 2px #DDD;
+			margin-top: 3em;
+		}
+		
+		H3 {
+			color: #666;
+			font-weight: normal;
+		}
+		
+		A {
+			color: #08C;
+		}
+		
+		A:hover {
+			color: #0CF;
+		}
+		
+		PRE {
+			background: #F8F8F8;
+			color: #666;
+			border-radius: 8px;
+			box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+			padding: 8px;
+			margin: 20px 0;
+		}
+		
+		CODE {
+			background: #F6F6F6;
+			color: #666;
+			padding: 1px 4px;
+		}
+		
+		.highlight {
+			color: #090;
+		}
+		
+		.example {
+			color: #08C;
+			cursor: pointer;
+			padding: 4px;
+			border-radius: 4px;
+		}
+		
+		.example:after {
+			font-family: Consolas, Courier New, Arial, sans-serif;
+			content: '↓';
+			margin-left: 6px;
+			color: #08C;
+		}
+		
+		.example:hover {
+			background: #F2F2F2;
+		}
+		
+		.example.dropdown-open {
+			background: #888;
+			color: #FFF;
+		}
+		
+		.example.dropdown-open:after {
+			color: #FFF;
+		}
+		
+	</style>
+</head>
+<body>
+	
+	<h1>jQuery Bootstrap-style Dropdowns</h1>
+	
+	<h2>Backstory</h2>
+	<p>
+		A really awesome framework called <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> was recently 
+		released by a couple of guys at Twitter.  You probably already heard of it by now.  And you probably already 
+		fell in love with it.
+	</p>
+	<p>
+		One of my favorite Boostrap plugins is <a href="http://twitter.github.com/bootstrap/javascript.html#dropdowns">dropdowns</a>, 
+		but I had a bit of difficulty getting started with them.  The docs say you can apply a dropdown to 
+		<em>nearly any element</em>, but they really seem to work best with Bootstrap’s navbar, tab, and pill 
+		components.  Since I was retrofitting an app that was around long before Bootstrap, this wasn’t going 
+		to work for me.  That and I was hoping to get a scrollable dropdown (with tips!) and a few other feautres 
+		out of the deal.  Thus, this plugin was born.
+	</p>
+	<p>
+		While the appearance of these dropdowns is almost identical to those of Bootstrap’s, it’s important to 
+		note that JavaScript for this plugin was developed entirely from scratch. Some CSS was borrowed, however, 
+		especially for generating those gorgeous tips.
+	</p>
+	<p>
+		Wanna see what they look like?  <span class="example" data-dropdown="#dropdown-1">Try it!</span>
+		Wanna contribute to this project?  <a href="https://github.com/claviska/jquery-dropdown">It’s on GitHub</a>
+	</p>
+	
+	<h2>Usage</h2>
+	<p>
+		1. Start by including the necessary files into your app:
+	</p>
+<pre>
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; src=&quot;jquery.dropdown.css&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.dropdown.js&quot;&gt;&lt;/script&gt;
+</pre>
+	<p>
+		2. Create a dropdown menu by placing a <code>div</code>-wrapped list with an <code>id</code> and the 
+		<code>dropdown-menu</code> class immediately before your closing <code>body</code> tag:
+	</p>
+<pre>
+&lt;div <span class="highlight">id=&quot;dropdown-1&quot; class=&quot;dropdown-menu has-tip&quot;</span>&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;#1&quot;&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#2&quot;&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#3&quot;&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#4&quot;&gt;Item 4&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#5&quot;&gt;Item 5&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#5&quot;&gt;Item 6&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+	<p>
+		3. Add the <code>data-dropdown</code> attribute to any HTML element, using the <code>id</code> of the 
+		dropdown as the value.  That’s all you have to do–you don’t even have to initialize it!  The plugin 
+		also works on dynamically generated triggers.
+	</p>
+<pre>
+&lt;a href=&quot;#&quot; <span class="highlight">data-dropdown=&quot;#dropdown-1&quot;</span>&gt;dropdown&lt;/a&gt;
+</pre>
+	
+	<h2>Demos</h2>
+	<p>
+		Dropdowns can be attached to any element that you want:
+	</p>
+	<p>
+		<a href="#" data-dropdown="#dropdown-1">Here’s a link</a>
+		and here’s a button <input type="button" value="Dropdown" data-dropdown="#dropdown-1" />
+		and here’s a <span class="example" data-dropdown="#dropdown-1">span</span>
+	</p>
+	
+	<h3>Scrolling</h3>
+	<p>
+		Now let’s see a really long dropdown that will scroll: <span class="example" data-dropdown="#dropdown-3">Example</span>
+	</p>
+	
+	<h3>Form Controls</h3>
+	<p>
+		You can add form controls to your dropdowns: <span class="example" data-dropdown="#dropdown-2">Example</span>
+	</p>
+	
+	<h3>With Icons</h3>
+	<p>
+		You can use CSS to add icons to your dropdowns: <span class="example" data-dropdown="#dropdown-5">Example</span>
+	</p>
+	
+	<h3>Special Classes</h3>
+	<ul>
+		<li>To disable the dropdown, add the <code>dropdown-disabled</code> class to the trigger element</li>
+		<li>To add a tip to the dropdown, add the <code>has-tip</code> class to the dropdown element</li>
+		<li>To make the dropdown anchor to the right, add the <code>anchor-right</code> class to the dropdown element: <span class="example" data-dropdown="#dropdown-4">Example</span></li>
+		
+	</ul>
+	
+	<h2>API</h2>
+	<p>
+		You probably won’t need these, but they’re there just in case.
+	</p>
+	<ul>
+		<li><code>attach</code> – attach a dropdown to the selected trigger element(s); pass in the <code>#dropdown-id</code> as <code>value</code></li>
+		<li><code>detach</code> – detach a dropdown from the selected trigger element(s)</li>
+		<li><code>enable</code> – enables the dropdown and removes the <code>dropdown-disabled</code> class from the trigger</li>
+		<li><code>disable</code> – disables the dropdown and adds the <code>dropdown-disabled</code> class to the trigger</li>
+		<li><code>hide</code> – hide the dropdown</li>
+	</ul>
+	<p>
+		Example usage: <code>$('#trigger').dropdown('<em>method</em>', <em>[value]</em>);</code>
+	</p>
+	
+	<h2>Q&amp;A</h2>
+	<ul>
+		<li>
+			<strong>Was it necessary to wrap the dropdowns in a <code>div</code>?</strong><br />
+			No.  But I’m a sucker for the consistency, and since the tips use <code>:before</code> and <code>:after</code>, 
+			it’s impossible to have them on the scrolling dropdown without a wrapper (<code>overflow: auto</code>, eh). 
+			I really, really wanted those tips on all instances of the dropdown, so I wrapped it.
+		</li>
+		<li>
+			<strong>How do I stop the dropdown from going off the screen?</strong><br />
+			This plugin was intended to be very lightweight—the initial release is less than 70 lines of code!  If you have a 
+			very elegant way to keep the dropdown within the viewport without using a dependency, let me know.  Otherwise, 
+			position them higher ;)
+		</li>
+		<li>
+			<strong>How do I modify the dropdown menu on the fly?</strong><br />
+			Just modify if like any other element. The <code>id</code> doesn’t change, and the menu will be updated 
+			the next time it is displayed.
+		</li>
+		<li>
+			<strong>Do they support submenus?</strong><br />
+			No, and they aren’t intended to. That would add a significant amount of complexity to the plugin and is really 
+			outside the scope of this project.
+		</li>
+		<li>
+			<strong>Can I get rid of the tips?</strong><br />
+			Sure, just remove the <code>has-tip</code> class from your dropdown.
+		</li>
+		<li>
+			<strong>Do they work in IE?</strong><br />
+			Yes, but you won’t see any tips in IE7 and you won’t see any box-shadows until IE9. They’re completely usable in 
+			IE 7/8, they’re just not as pretty.
+		</li>
+		<li>
+			<strong>Is it free to use?</strong><br />
+			Of course!  It’s licensed under the MIT or GPL Version 2 licenses, depending on your needs.
+		</li>
+		<li>
+			<strong>Who made this?</strong><br />
+			The same guy that runs <a href="http://www.abeautifulsite.net/">A Beautiful Site, LLC.</a> and 
+			<a href="http://www.surrealcms.com/">Surreal CMS</a>.
+		</li>
+	</ul>
+	
+	
+	<!-- Remember to put your dropdown menus before your ending BODY tag -->
+	<div id="dropdown-1" class="dropdown-menu has-tip">
+		<ul>
+			<li><a href="#1">Item 1</a></li>
+			<li><a href="#2">Item 2</a></li>
+			<li><a href="#3">Item 3</a></li>
+			<li class="divider"></li>
+			<li><a href="#4">Item 4</a></li>
+			<li><a href="#5">Item 5</a></li>
+			<li><a href="#5">Item 6</a></li>
+		</ul>
+	</div>
+	
+	<div id="dropdown-2" class="dropdown-menu has-tip">
+		<ul>
+			<li><label><input type="checkbox" /> Checkbox 1</label></li>
+			<li><label><input type="checkbox" /> Checkbox 2</label></li>
+			<li><label><input type="checkbox" /> Checkbox 3</label></li>
+			<li class="divider"></li>
+			<li><label><input type="radio" name="radio-group" checked="checked" /> Radio 1</label></li>
+			<li><label><input type="radio" name="radio-group" /> Radio 2</label></li>
+			<li><label><input type="radio" name="radio-group" /> Radio 3</label></li>
+		</ul>
+	</div>
+	
+	<div id="dropdown-3" class="dropdown-menu has-tip has-scroll">
+		<ul>
+			<li><a href="#1">Item 1</a></li>
+			<li><a href="#2">Item 2</a></li>
+			<li><a href="#3">Item 3</a></li>
+			<li><a href="#4">Item 4</a></li>
+			<li><a href="#5">Item 5</a></li>
+			<li class="divider"></li>
+			<li><a href="#6">Item 6</a></li>
+			<li><a href="#7">Item 7</a></li>
+			<li><a href="#8">Item 8</a></li>
+			<li><a href="#9">Item 9</a></li>
+			<li><a href="#10">Item 10</a></li>
+			<li class="divider"></li>
+			<li><a href="#11">Item 11</a></li>
+			<li><a href="#12">Item 12</a></li>
+			<li><a href="#13">Item 13</a></li>
+			<li><a href="#14">Item 14</a></li>
+			<li><a href="#15">Item 15</a></li>
+			<li class="divider"></li>
+			<li><a href="#16">Item 16</a></li>
+			<li><a href="#17">Item 17</a></li>
+			<li><a href="#18">Item 18</a></li>
+			<li><a href="#19">Item 19</a></li>
+			<li><a href="#20">Item 20</a></li>
+			<li class="divider"></li>
+			<li><a href="#21">Item 21</a></li>
+			<li><a href="#22">Item 22</a></li>
+			<li><a href="#23">Item 23</a></li>
+			<li><a href="#24">Item 24</a></li>
+			<li><a href="#25">Item 25</a></li>
+			<li class="divider"></li>
+			<li><a href="#26">Item 26</a></li>
+			<li><a href="#27">Item 27</a></li>
+			<li><a href="#28">Item 28</a></li>
+			<li><a href="#29">Item 29</a></li>
+			<li><a href="#30">Item 30</a></li>
+		</ul>
+	</div>	
+	
+	<div id="dropdown-4" class="dropdown-menu has-tip anchor-right">
+		<ul>
+			<li><a href="#1">Item 1</a></li>
+			<li><a href="#2">Item 2</a></li>
+			<li><a href="#3">Item 3</a></li>
+			<li class="divider"></li>
+			<li><a href="#4">Item 4</a></li>
+			<li><a href="#5">Item 5</a></li>
+			<li><a href="#5">Item 6</a></li>
+		</ul>
+	</div>
+	
+	<div id="dropdown-5" class="dropdown-menu has-tip has-icons">
+		<ul>
+			<li class="undo"><a href="#">Undo</a></li>
+			<li class="redo"><a href="#">Redo</a></li>
+			<li class="divider"></li>
+			<li class="cut"><a href="#">Cut</a></li>
+			<li class="copy"><a href="#">Copy</a></li>
+			<li class="paste"><a href="#">Paste</a></li>
+			<li class="delete"><a href="#">Delete</a></li>
+		</ul>
+	</div>
+	
+</body>
+</html>
