@@ -14,26 +14,32 @@ http://http://labs.abeautifulsite.net/jquery-dropdown/
 
 1. Include required files:
 
-  &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; src=&quot;jquery.dropdown.css&quot; /&gt;
-  &lt;script type=&quot;text/javascript&quot; src=&quot;jquery.dropdown.js&quot;&gt;&lt;/script&gt;
+```html
+<link type="text/css" rel="stylesheet" src="jquery.dropdown.css" />`
+<script type="text/javascript" src="jquery.dropdown.js"></script>`
+```
 
 2. Create a dropdown and insert it before the closing body tag:
 
-  &lt;div <span class="highlight">id=&quot;dropdown-1&quot; class=&quot;dropdown-menu has-tip&quot;</span>&gt;
-      &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#1&quot;&gt;Item 1&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#2&quot;&gt;Item 2&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#3&quot;&gt;Item 3&lt;/a&gt;&lt;/li&gt;
-          &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#4&quot;&gt;Item 4&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#5&quot;&gt;Item 5&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#5&quot;&gt;Item 6&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-  &lt;/div&gt;
+```html
+<div id="dropdown-1" class="dropdown-menu has-tip">
+    <ul>
+        <li><a href="#1">Item 1</a></li>
+        <li><a href="#2">Item 2</a></li>
+        <li><a href="#3">Item 3</a></li>
+        <li class="divider"></li>
+        <li><a href="#4">Item 4</a></li>
+        <li><a href="#5">Item 5</a></li>
+        <li><a href="#5">Item 6</a></li>
+    </ul>
+</div>
+```
 
 3. Add the `data-dropdown` attribute to any HTML element:
 
-  &lt;a href=&quot;#&quot; <span class="highlight">data-dropdown=&quot;#dropdown-1&quot;</span>&gt;dropdown&lt;/a&gt;
+```html
+<a href="#" data-dropdown="#dropdown-1">dropdown</a>
+```
 
 4. There’s no need to initialize it! The plugin will handle everything from here.
 
