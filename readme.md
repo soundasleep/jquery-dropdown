@@ -6,4 +6,45 @@ Inspired by [Bootstrap](http://twitter.github.com/bootstrap/javascript.html#drop
 
 Dual licensed under the MIT or GPL Version 2 licenses
 
-Please view the `index.html` file for demos and documentation.
+## Demo ##
+
+http://http://labs.abeautifulsite.net/jquery-dropdown/
+
+## Usage ##
+
+1. Include required files:
+
+	<link type="text/css" rel="stylesheet" src="jquery.dropdown.css" />
+	<script type="text/javascript" src="jquery.dropdown.js"></script>
+
+2. Create a dropdown and insert it before the closing body tag:
+
+	<div id="dropdown-1" class="dropdown-menu has-tip">
+	    <ul>
+	        <li><a href="#1">Item 1</a></li>
+	        <li><a href="#2">Item 2</a></li>
+	        <li><a href="#3">Item 3</a></li>
+	        <li class="divider"></li>
+	        <li><a href="#4">Item 4</a></li>
+	        <li><a href="#5">Item 5</a></li>
+	        <li><a href="#5">Item 6</a></li>
+	    </ul>
+	</div>
+
+3. Add the `data-dropdown` attribute to any HTML element:
+
+	<a href="#" data-dropdown="#dropdown-1">dropdown</a>
+
+4. There’s no need to initialize it! The plugin will handle everything from here.
+
+## API ##
+
+You probably won’t need these, but they’re there just in case.
+
+`attach` – attach a dropdown to the selected trigger element(s); pass in the #dropdown-id as value
+`detach` – detach a dropdown from the selected trigger element(s)
+`enable` – enables the dropdown and removes the dropdown-disabled class from the trigger
+`disable` – disables the dropdown and adds the dropdown-disabled class to the trigger
+`hide` – hide the dropdown
+
+Example usage: `$('#trigger').dropdown('method', [value]);`
