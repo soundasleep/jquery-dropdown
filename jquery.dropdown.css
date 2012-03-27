@@ -1,4 +1,5 @@
 .dropdown-menu {
+	font: 14px sans-serif;
 	position: absolute;
 	z-index: 9999999;
 	display: none;
