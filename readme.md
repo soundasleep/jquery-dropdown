@@ -15,7 +15,7 @@ http://labs.abeautifulsite.net/jquery-dropdown/
 * Include required files:
 
 ```html
-<link type="text/css" rel="stylesheet" src="jquery.dropdown.css" />`
+<link type="text/css" rel="stylesheet" href="jquery.dropdown.css" />`
 <script type="text/javascript" src="jquery.dropdown.js"></script>`
 ```
 
