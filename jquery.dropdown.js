@@ -55,6 +55,14 @@ if(jQuery) (function($) {
 		
 		trigger.addClass('dropdown-open');
 		
+		$(window).resize(function() {
+			dropdown
+				.css({
+					left: dropdown.hasClass('anchor-right') ? 
+						trigger.offset().left - (dropdown.outerWidth() - trigger.outerWidth()) : trigger.offset().left,
+					top: trigger.offset().top + trigger.outerHeight()
+				});
+		});
 	};
 	
 	function hideDropdowns(event) {
@@ -65,6 +73,8 @@ if(jQuery) (function($) {
 		$('BODY')
 			.find('.dropdown-menu').hide().end()
 			.find('[data-dropdown]').removeClass('dropdown-open');
+			
+		$(window).unbind('resize');
 	};
 	
 	$(function () {
