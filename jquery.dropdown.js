@@ -69,7 +69,8 @@ if(jQuery) (function($) {
 	
 	$(function () {
 		$('BODY').on('click.dropdown', '[data-dropdown]', showMenu);
-		$('HTML').on('click.dropdown', hideDropdowns)
+		$('HTML').on('click.dropdown', hideDropdowns);
+		$(window).on('resize.dropdown', hideDropdowns);
 	});
 	
 })(jQuery);
