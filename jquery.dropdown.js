@@ -45,13 +45,14 @@ if(jQuery) (function($) {
 		
 		if( isOpen || trigger.hasClass('dropdown-disabled') ) return;
 		
-		dropdown
-			.css({
-				left: dropdown.hasClass('anchor-right') ? 
+		if(!dropdown.hasClass("dropdown-noposition"))
+			dropdown.css({
+				left: dropdown.hasClass('anchor-right') ?
 					trigger.offset().left - (dropdown.outerWidth() - trigger.outerWidth()) : trigger.offset().left,
 				top: trigger.offset().top + trigger.outerHeight()
-			})
-			.show();
+			});
+		
+		dropdown.show();
 		
 		trigger.addClass('dropdown-open');
 		
