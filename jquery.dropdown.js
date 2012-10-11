@@ -45,7 +45,7 @@ if(jQuery) (function($) {
 		
 		if( isOpen || trigger.hasClass('dropdown-disabled') ) return;
 		
-		if(!dropdown.hasClass("dropdown-nostyle"))
+		if(!dropdown.hasClass("dropdown-noposition"))
 			dropdown.css({
 				left: dropdown.hasClass('anchor-right') ?
 					trigger.offset().left - (dropdown.outerWidth() - trigger.outerWidth()) : trigger.offset().left,
