@@ -43,7 +43,7 @@ http://labs.abeautifulsite.net/jquery-dropdown/
 
 * There’s no need to initialize it! The plugin will handle everything from here.
 
-## DISABLING CONTENT ##
+## Disabling content within a larger trigger ##
 
 * Suppose you enable data-dropdown on a container, say a table row. To disable the dropdown on items within the row, add the class 'dropdown-ignore' to that item:
 
