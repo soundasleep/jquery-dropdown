@@ -37,6 +37,8 @@ if(jQuery) (function($) {
 		var trigger = $(this),
 			dropdown = $( $(this).attr('data-dropdown') ),
 			isOpen = trigger.hasClass('dropdown-open');
+			hOffset = (typeof $(this).attr('data-dropdown-h-offset') !== "undefined") ? hOffset = parseInt($(this).attr('data-dropdown-h-offset')) : 0;
+			vOffset = (typeof $(this).attr('data-dropdown-v-offset') !== "undefined") ? vOffset = parseInt($(this).attr('data-dropdown-v-offset')) : 0;
 		
 		event.preventDefault();
 		event.stopPropagation();
@@ -48,8 +50,8 @@ if(jQuery) (function($) {
 		dropdown
 			.css({
 				left: dropdown.hasClass('anchor-right') ? 
-					trigger.offset().left - (dropdown.outerWidth() - trigger.outerWidth()) : trigger.offset().left,
-				top: trigger.offset().top + trigger.outerHeight()
+					trigger.offset().left - (dropdown.outerWidth() - trigger.outerWidth()) + hOffset: trigger.offset().left + hOffset,
+				top: trigger.offset().top + trigger.outerHeight() + vOffset
 			})
 			.show();
 		
