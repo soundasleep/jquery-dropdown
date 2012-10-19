@@ -43,6 +43,22 @@ http://labs.abeautifulsite.net/jquery-dropdown/
 
 * There’s no need to initialize it! The plugin will handle everything from here.
 
+## Options ##
+
+The following option attributes can be added to trigger element to override the plugin's default behvior.
+
+`data-dropdown-h-offset` – add/subtract pixels from the default horizontal position of the menu.
+
+`data-dropdown-v-offset` – add/subtract pixels from the default vertical position of the menu.
+
+Example usage:
+
+```html
+<a href="#" data-dropdown="#dropdown-1" data-dropdown-h-offset="3" data-dropdown-v-offset="-5">dropdown</a>
+```
+
+...to move the menu up 5 and left 3 pixels.
+
 ## API ##
 
 You probably won’t need these, but they’re there just in case.
