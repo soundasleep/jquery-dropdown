@@ -45,7 +45,7 @@ http://labs.abeautifulsite.net/jquery-dropdown/
 
 ## Options ##
 
-The following option attributes can be added to trigger element to override the plugin's default behvior.
+The following optional attributes can be added to the trigger element, overriding the plugin's default behavior.
 
 `data-dropdown-h-offset` – add/subtract pixels from the default horizontal position of the menu.
 
