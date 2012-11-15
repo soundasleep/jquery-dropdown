@@ -45,9 +45,9 @@ http://labs.abeautifulsite.net/jquery-dropdown/
 
 ## Special Classes ##
 - To disable the dropdown, add the `dropdown-disabled` class to the trigger element
+- To offset positioning, add `data-horizontal-offset="10"` and/or `data-vertical-offset="10"` to the trigger element
 - To add a tip to the dropdown, add the `has-tip` class to the dropdown element
 - To make the dropdown anchor to the right, add the `anchor-right` class to the dropdown element: <span class="example" data-dropdown="#dropdown-4">Example</span>
-- To offset positioning, add `data-horizontal-offset="10"` for horizontal, and `data-vertical-offset="10"` for vertical
 
 ## Disabling content within a larger trigger ##
 
