@@ -43,6 +43,12 @@ http://labs.abeautifulsite.net/jquery-dropdown/
 
 * There’s no need to initialize it! The plugin will handle everything from here.
 
+## Special Classes ##
+- To disable the dropdown, add the `dropdown-disabled` class to the trigger element
+- To add a tip to the dropdown, add the `has-tip` class to the dropdown element
+- To make the dropdown anchor to the right, add the `anchor-right` class to the dropdown element: <span class="example" data-dropdown="#dropdown-4">Example</span>
+- To offset positioning, add `data-horizontal-offset="10"` for horizontal, and `data-vertical-offset="10"` for vertical
+
 ## Disabling content within a larger trigger ##
 
 * Suppose you enable the dropdown on a container (i.e. a table row). To disable the dropdown on items within the row, add the class `dropdown-ignore` to that element:
