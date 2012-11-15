@@ -45,11 +45,11 @@ http://labs.abeautifulsite.net/jquery-dropdown/
 
 ## Disabling content within a larger trigger ##
 
-* Suppose you enable data-dropdown on a container, say a table row. To disable the dropdown on items within the row, add the class 'dropdown-ignore' to that item:
+* Suppose you enable the dropdown on a container (i.e. a table row). To disable the dropdown on items within the row, add the class `dropdown-ignore` to that element:
 
 ```html
 <tr data-dropdown="#dropdown-1">
-  <td><a class='dropdown-ignore' href='http://example.com'>I won't trigger the dropdown</a></td>
+  <td><a class="dropdown-ignore" href="http://example.com">I won't trigger the dropdown</a></td>
   <td>I will trigger the dropdown</td>
 </tr>
 ```

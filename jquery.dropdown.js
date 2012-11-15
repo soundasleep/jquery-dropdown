@@ -37,8 +37,8 @@ if(jQuery) (function($) {
 		var trigger = $(this),
 			dropdown = $( $(this).attr('data-dropdown') ),
 			isOpen = trigger.hasClass('dropdown-open');
-
-		if (trigger != event.target && $(event.target).hasClass('dropdown-ignore')) return;
+		
+		if( trigger !== event.target && $(event.target).hasClass('dropdown-ignore') ) return;
 		
 		event.preventDefault();
 		event.stopPropagation();
