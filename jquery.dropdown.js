@@ -37,6 +37,8 @@ if(jQuery) (function($) {
 		var trigger = $(this),
 			dropdown = $( $(this).attr('data-dropdown') ),
 			isOpen = trigger.hasClass('dropdown-open'),
+                        isCached = trigger.attr('data-cached'),
+                        dataSrc = trigger.attr('data-src'),
 			hOffset = parseInt($(this).attr('data-horizontal-offset') || 0),
 			vOffset = parseInt($(this).attr('data-vertical-offset') || 0);
 		
@@ -48,6 +50,20 @@ if(jQuery) (function($) {
 		hideDropdowns();
 		
 		if( isOpen || trigger.hasClass('dropdown-disabled') ) return;
+
+		if (dataSrc && ! isCached) {
+                    dropdown.addClass('has-loader');
+                    $.ajaxSetup({cache: false});
+                    $.getJSON(dataSrc, function(data) {
+                        var ul = $(document.createElement('ul'));
+                        $.each(data, function(key, value) {
+                            ul.append('<li><a href="'+value.href+'">'+value.text+'</a></li>');
+                        });
+                        dropdown.removeClass('has-loader').append(ul);
+                        
+                        trigger.attr('data-cached', true);
+                    });
+                }
 		
 		dropdown
 			.css({
