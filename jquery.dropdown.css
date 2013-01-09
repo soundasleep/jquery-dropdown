@@ -1,6 +1,6 @@
 .dropdown-menu {
 	font: 14px sans-serif;
-	position: absolute;
+	position: fixed;
 	z-index: 9999999;
 	display: none;
 }
