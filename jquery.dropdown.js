@@ -49,6 +49,9 @@ if(jQuery) (function($) {
 		
 		if( isOpen || trigger.hasClass('dropdown-disabled') ) return;
 		
+		// Disable window.resize handler for old IE (window.resize bug)
+		$(window).off('resize.dropdown');
+		
 		dropdown
 			.css({
 				left: dropdown.hasClass('anchor-right') ? 
@@ -58,6 +61,11 @@ if(jQuery) (function($) {
 			.show();
 		
 		trigger.addClass('dropdown-open');
+		
+		// Re-enable window.resize handler for old IE (window.resize bug)
+		setTimeout( function() {
+			$(window).on('resize.dropdown', hideDropdowns);
+		}, 1);
 		
 	};
 	
@@ -69,15 +77,12 @@ if(jQuery) (function($) {
 		$('BODY')
 			.find('.dropdown-menu').hide().end()
 			.find('[data-dropdown]').removeClass('dropdown-open');
+		
 	};
 	
-	$(function () {
+	$(function() {
 		$('BODY').on('click.dropdown', '[data-dropdown]', showMenu);
 		$('HTML').on('click.dropdown', hideDropdowns);
-		// Hide on resize (IE7/8 trigger this when any element is resized...)
-		if( !$.browser.msie || ($.browser.msie && $.browser.version >= 9) ) {
-			$(window).on('resize.dropdown', hideDropdowns);
-		}
 	});
 	
 })(jQuery);
