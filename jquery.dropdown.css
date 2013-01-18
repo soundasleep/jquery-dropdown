@@ -86,10 +86,10 @@
 }
 
 .dropdown-menu .divider {
-	height: 1px;
-	background: #E5E5E5;
-	margin: 5px 1px;
-	overflow: hidden;
+	font-size: 1px;
+	border-top: solid 1px #E5E5E5;
+	padding: 0;
+	margin: 10px 1px;
 }
 
 /* Icon Examples - icons courtesy of http://p.yusukekamiyamane.com/ */
