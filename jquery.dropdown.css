@@ -69,7 +69,7 @@
 
 .dropdown .dropdown-menu LI {
 	list-style: none;
-	padding: 0;
+	padding: 0 0;
 	margin: 0;
 	line-height: 18px;
 }
@@ -91,11 +91,11 @@
 	cursor: pointer;
 }
 
-.dropdown .divider {
+.dropdown .dropdown-menu .dropdown-divider {
 	font-size: 1px;
 	border-top: solid 1px #E5E5E5;
 	padding: 0;
-	margin: 10px 1px;
+	margin: 5px 0;
 }
 
 /* Icon Examples - icons courtesy of http://p.yusukekamiyamane.com/ */
