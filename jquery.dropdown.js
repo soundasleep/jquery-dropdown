@@ -3,9 +3,9 @@
  *
  * Inspired by Bootstrap: http://twitter.github.com/bootstrap/javascript.html#dropdowns
  *
- * Copyright 2011 Cory LaViska for A Beautiful Site, LLC. (http://abeautifulsite.net/)
+ * Copyright 2013 Cory LaViska for A Beautiful Site, LLC. (http://abeautifulsite.net/)
  *
- * Dual licensed under the MIT or GPL Version 2 licenses
+ * Dual licensed under the MIT / GPL Version 2 licenses
  *
 */
 if(jQuery) (function($) {
@@ -32,7 +32,7 @@ if(jQuery) (function($) {
 		}
 	});
 	
-	function showMenu(event) {
+	function showDropdown(event) {
 		
 		var trigger = $(this),
 			dropdown = $( $(this).attr('data-dropdown') ),
@@ -54,7 +54,7 @@ if(jQuery) (function($) {
 		
 		dropdown
 			.css({
-				left: dropdown.hasClass('anchor-right') ? 
+				left: dropdown.hasClass('dropdown-anchor-right') ? 
 					trigger.offset().left - (dropdown.outerWidth() - trigger.outerWidth()) + hOffset : trigger.offset().left + hOffset,
 				top: trigger.offset().top + trigger.outerHeight() + vOffset
 			})
@@ -72,16 +72,16 @@ if(jQuery) (function($) {
 	function hideDropdowns(event) {
 		
 		var targetGroup = event ? $(event.target).parents().andSelf() : null;
-		if( targetGroup && targetGroup.is('.dropdown-menu') && !targetGroup.is('A') ) return;
+		if( targetGroup && targetGroup.is('.dropdown') && !targetGroup.is('A') ) return;
 		
 		$('BODY')
-			.find('.dropdown-menu').hide().end()
+			.find('.dropdown').hide().end()
 			.find('[data-dropdown]').removeClass('dropdown-open');
 		
 	};
 	
 	$(function() {
-		$('BODY').on('click.dropdown', '[data-dropdown]', showMenu);
+		$('BODY').on('click.dropdown', '[data-dropdown]', showDropdown);
 		$('HTML').on('click.dropdown', hideDropdowns);
 	});
 	

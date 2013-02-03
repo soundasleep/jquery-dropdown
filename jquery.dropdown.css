@@ -1,11 +1,13 @@
-.dropdown-menu {
+.dropdown {
 	position: absolute;
 	z-index: 9999999;
 	display: none;
 }
 
-.dropdown-menu UL {
+.dropdown .dropdown-menu,
+.dropdown .dropdown-panel {
 	min-width: 160px;
+	max-width: 360px;
 	list-style: none;
 	background: #FFF;
 	border: solid 1px #DDD;
@@ -17,11 +19,15 @@
 	margin: 0;
 }
 
-.dropdown-menu.has-tip {
+.dropdown .dropdown-panel {
+	padding: 10px;
+}
+
+.dropdown.dropdown-tip {
 	margin-top: 8px;
 }
 
-.dropdown-menu.has-tip:before {
+.dropdown.dropdown-tip:before {
   position: absolute;
   top: -6px;
   left: 9px;
@@ -33,12 +39,12 @@
   display: inline-block;
 }
 
-.dropdown-menu.has-tip.anchor-right:before {
+.dropdown.dropdown-tip.dropdown-anchor-right:before {
 	left: auto;
 	right: 9px;
 }
 
-.dropdown-menu.has-tip:after {
+.dropdown.dropdown-tip:after {
   position: absolute;
   top: -5px;
   left: 10px;
@@ -49,26 +55,27 @@
   display: inline-block;
 }
 
-.dropdown-menu.has-tip.anchor-right:after {
+.dropdown.dropdown-tip.dropdown-anchor-right:after {
 	left: auto;
 	right: 10px;
 }
 
 
-.dropdown-menu.has-scroll UL {
+.dropdown.dropdown-scroll .dropdown-menu,
+.dropdown.dropdown-scroll .dropdown-panel {
 	max-height: 358px;
 	overflow: auto;
 }
 
-.dropdown-menu LI {
+.dropdown .dropdown-menu LI {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 	line-height: 18px;
 }
 
-.dropdown-menu LI > A,
-.dropdown-menu LABEL {
+.dropdown .dropdown-menu LI > A,
+.dropdown .dropdown-menu LABEL {
 	display: block;
 	color: #555;
 	text-decoration: none;
@@ -77,14 +84,14 @@
 	white-space: nowrap;
 }
 
-.dropdown-menu LI > A:hover,
-.dropdown-menu LABEL:hover {
+.dropdown .dropdown-menu LI > A:hover,
+.dropdown .dropdown-menu LABEL:hover {
 	background-color: #08C;
 	color: #FFF;
 	cursor: pointer;
 }
 
-.dropdown-menu .divider {
+.dropdown .divider {
 	font-size: 1px;
 	border-top: solid 1px #E5E5E5;
 	padding: 0;
@@ -92,15 +99,15 @@
 }
 
 /* Icon Examples - icons courtesy of http://p.yusukekamiyamane.com/ */
-.dropdown-menu.has-icons LI > A {
+.dropdown.has-icons LI > A {
 	padding-left: 30px;
 	background-position: 8px center;
 	background-repeat: no-repeat;
 }
 
-.dropdown-menu .undo A { background-image: url(icons/arrow-curve-180-left.png); }
-.dropdown-menu .redo A { background-image: url(icons/arrow-curve.png); }
-.dropdown-menu .cut A { background-image: url(icons/scissors.png); }
-.dropdown-menu .copy A { background-image: url(icons/document-copy.png); }
-.dropdown-menu .paste A { background-image: url(icons/clipboard.png); }
-.dropdown-menu .delete A { background-image: url(icons/cross-script.png); }
+.dropdown .undo A { background-image: url(icons/arrow-curve-180-left.png); }
+.dropdown .redo A { background-image: url(icons/arrow-curve.png); }
+.dropdown .cut A { background-image: url(icons/scissors.png); }
+.dropdown .copy A { background-image: url(icons/document-copy.png); }
+.dropdown .paste A { background-image: url(icons/clipboard.png); }
+.dropdown .delete A { background-image: url(icons/cross-script.png); }
