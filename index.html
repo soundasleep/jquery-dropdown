@@ -203,7 +203,7 @@
 	
 	<h2>API</h2>
 	<p>
-		You probably won’t need these, but they’re there just in case.
+		You probably won’t need these, but they’re there just in case:
 	</p>
 	<ul>
 		<li><code>attach</code> – attach a dropdown to the selected trigger element(s); pass in the <code>#dropdown-id</code> as <code>value</code></li>
@@ -214,6 +214,23 @@
 	</ul>
 	<p>
 		Example usage: <code>$('#trigger').dropdown('<em>method</em>', <em>[value]</em>);</code>
+	</p>
+	
+	<h2>Events</h2>
+	<p>
+		You can attach events to each dropdown:
+	</p>
+	<ul>
+		<li><code>show</code> — triggered when the dropdown is shown</li>
+		<li><code>hide</code> — triggered when the dropdown is hidden</li>
+	</ul>
+	<p>
+		Example usage:
+<pre>$('#dropdown-id').on('show', function(event, dropdownData) {
+    console.log(dropdownData);
+}).on('hide', function(event, dropdownData) {
+    console.log(dropdownData);
+});</pre>
 	</p>
 	
 	<h2>Q&amp;A</h2>

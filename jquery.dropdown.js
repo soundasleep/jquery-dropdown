@@ -58,7 +58,11 @@ if(jQuery) (function($) {
 					trigger.offset().left - (dropdown.outerWidth() - trigger.outerWidth()) + hOffset : trigger.offset().left + hOffset,
 				top: trigger.offset().top + trigger.outerHeight() + vOffset
 			})
-			.show();
+			.show()
+			.trigger('show', {
+				dropdown: dropdown,
+				trigger: trigger
+			});
 		
 		trigger.addClass('dropdown-open');
 		
@@ -74,9 +78,17 @@ if(jQuery) (function($) {
 		var targetGroup = event ? $(event.target).parents().andSelf() : null;
 		if( targetGroup && targetGroup.is('.dropdown') && !targetGroup.is('A') ) return;
 		
-		$('BODY')
-			.find('.dropdown').hide().end()
-			.find('[data-dropdown]').removeClass('dropdown-open');
+		// Hide all dropdowns
+		$('BODY').find('.dropdown').each( function() {
+			var dropdown = $(this);
+			if( dropdown.is(':visible') ) dropdown.hide().trigger('hide', {
+				dropdown: dropdown,
+				target: event.target
+			});
+		});
+		
+		// Remove all dropdown-open classes
+		$('BODY').find('[data-dropdown]').removeClass('dropdown-open');
 		
 	};
 	
