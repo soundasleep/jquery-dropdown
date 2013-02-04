@@ -82,8 +82,7 @@ if(jQuery) (function($) {
 		$('BODY').find('.dropdown').each( function() {
 			var dropdown = $(this);
 			if( dropdown.is(':visible') ) dropdown.hide().trigger('hide', {
-				dropdown: dropdown,
-				target: event.target
+				dropdown: dropdown
 			});
 		});
 		
