@@ -15,85 +15,110 @@ if(jQuery) (function($) {
 			
 			switch( method ) {
 				case 'hide':
-					hideDropdowns();
+					hide();
 					return $(this);
 				case 'attach':
 					return $(this).attr('data-dropdown', data);
 				case 'detach':
-					hideDropdowns();
+					hide();
 					return $(this).removeAttr('data-dropdown');
 				case 'disable':
 					return $(this).addClass('dropdown-disabled');
 				case 'enable':
-					hideDropdowns();
+					hide();
 					return $(this).removeClass('dropdown-disabled');
 			}
 			
 		}
 	});
 	
-	function showDropdown(event) {
+	function show(event) {
 		
 		var trigger = $(this),
-			dropdown = $( $(this).attr('data-dropdown') ),
-			isOpen = trigger.hasClass('dropdown-open'),
-			hOffset = parseInt($(this).attr('data-horizontal-offset') || 0),
-			vOffset = parseInt($(this).attr('data-vertical-offset') || 0);
+			dropdown = $(trigger.attr('data-dropdown')),
+			isOpen = trigger.hasClass('dropdown-open');
 		
+		// In some cases we don't want to show it
 		if( trigger !== event.target && $(event.target).hasClass('dropdown-ignore') ) return;
 		
 		event.preventDefault();
 		event.stopPropagation();
-		
-		hideDropdowns();
+		hide();
 		
 		if( isOpen || trigger.hasClass('dropdown-disabled') ) return;
 		
-		// Disable window.resize handler for old IE (window.resize bug)
-		$(window).off('resize.dropdown');
-		
+		// Show it
+		trigger.addClass('dropdown-open');
 		dropdown
-			.css({
-				left: dropdown.hasClass('dropdown-anchor-right') ? 
-					trigger.offset().left - (dropdown.outerWidth() - trigger.outerWidth()) + hOffset : trigger.offset().left + hOffset,
-				top: trigger.offset().top + trigger.outerHeight() + vOffset
-			})
-			.show()
+			.data('dropdown-trigger', trigger)
+			.show();
+			
+		// Position it
+		position();
+		
+		// Trigger the show callback
+		dropdown
 			.trigger('show', {
 				dropdown: dropdown,
 				trigger: trigger
 			});
 		
-		trigger.addClass('dropdown-open');
-		
-		// Re-enable window.resize handler for old IE (window.resize bug)
-		setTimeout( function() {
-			$(window).on('resize.dropdown', hideDropdowns);
-		}, 1);
-		
-	};
+	}
 	
-	function hideDropdowns(event) {
+	function hide(event) {
 		
+		// In some cases we don't hide them
 		var targetGroup = event ? $(event.target).parents().andSelf() : null;
-		if( targetGroup && targetGroup.is('.dropdown') && !targetGroup.is('A') ) return;
 		
-		// Hide all dropdowns
-		$('BODY').find('.dropdown').each( function() {
+		// Are we clicking anywhere in a dropdown?
+		if( targetGroup && targetGroup.is('.dropdown') ) {
+			// Is it a dropdown menu?
+			if( targetGroup.is('.dropdown-menu') ) {
+				// Did we click on an option? If so close it.
+				if( !targetGroup.is('A') ) return;
+			} else {	
+				// Nope, it's a panel. Leave it open.
+				return;
+			}
+		}
+		
+		// Hide any dropdown that may be showing
+		$(document).find('.dropdown:visible').each( function() {
 			var dropdown = $(this);
-			if( dropdown.is(':visible') ) dropdown.hide().trigger('hide', {
-				dropdown: dropdown
-			});
+			dropdown
+				.hide()
+				.removeData('dropdown-trigger')
+				.trigger('hide', { dropdown: dropdown });
 		});
 		
 		// Remove all dropdown-open classes
-		$('BODY').find('[data-dropdown]').removeClass('dropdown-open');
+		$(document).find('.dropdown-open').removeClass('dropdown-open');
 		
-	};
+	}
+	
+	function position() {
+		
+		var dropdown = $('.dropdown:visible').eq(0),
+			trigger = dropdown.data('dropdown-trigger'),
+			hOffset = trigger ? parseInt(trigger.attr('data-horizontal-offset') || 0) : null,
+			vOffset = trigger ? parseInt(trigger.attr('data-vertical-offset') || 0) : null;
+		
+		if( dropdown.length === 0 || !trigger ) return;
+		
+		// Position the dropdown
+		dropdown
+			.css({
+				left: dropdown.hasClass('dropdown-anchor-right') ? 
+					trigger.offset().left - (dropdown.outerWidth() - trigger.outerWidth()) + hOffset : trigger.offset().left + hOffset,
+				top: trigger.offset().top + trigger.outerHeight() + vOffset
+			});
+		
+	}
 	
 	$(function() {
-		$('BODY').on('click.dropdown', '[data-dropdown]', showDropdown);
-		$('HTML').on('click.dropdown', hideDropdowns);
+		$(document).on('click.dropdown', '[data-dropdown]', show);
+		$(document).on('click.dropdown', hide);
+		$(window).on('resize', position);
 	});
 	
 })(jQuery);
