@@ -105,13 +105,20 @@ if(jQuery) (function($) {
 
     if( dropdown.length === 0 || !trigger ) return;
 
-    // Position the dropdown
-    dropdown
-      .css({
+    // Position the dropdown relative-to-parent or relative-to-document
+    if( dropdown.hasClass('dropdown-relative') ) {
+      dropdown.css({
+        left: dropdown.hasClass('dropdown-anchor-right') ?
+          trigger.position().left - (dropdown.outerWidth(true) - trigger.outerWidth(true)) + hOffset : trigger.position().left + hOffset,
+        top: trigger.position().top + trigger.outerHeight(true) + vOffset
+      });
+    } else {
+      dropdown.css({
         left: dropdown.hasClass('dropdown-anchor-right') ?
           trigger.offset().left - (dropdown.outerWidth() - trigger.outerWidth()) + hOffset : trigger.offset().left + hOffset,
         top: trigger.offset().top + trigger.outerHeight() + vOffset
       });
+    }
 
   }
 
