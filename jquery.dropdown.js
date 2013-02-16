@@ -12,7 +12,6 @@ if(jQuery) (function($) {
 
   $.extend($.fn, {
     dropdown: function(method, data) {
-
       switch( method ) {
         case 'hide':
           hide();
@@ -28,7 +27,6 @@ if(jQuery) (function($) {
           hide();
           return $(this).removeClass('dropdown-disabled');
       }
-
     }
   });
 
@@ -109,8 +107,9 @@ if(jQuery) (function($) {
     if( dropdown.hasClass('dropdown-relative') ) {
       dropdown.css({
         left: dropdown.hasClass('dropdown-anchor-right') ?
-          trigger.position().left - (dropdown.outerWidth(true) - trigger.outerWidth(true)) + hOffset : trigger.position().left + hOffset,
-        top: trigger.position().top + trigger.outerHeight(true) + vOffset
+        trigger.position().left - (dropdown.outerWidth(true) - trigger.outerWidth(true)) - parseInt(trigger.css('margin-right')) + hOffset :
+        trigger.position().left + parseInt(trigger.css('margin-left')) + hOffset,
+        top: trigger.position().top + trigger.outerHeight(true) - parseInt(trigger.css('margin-top')) + vOffset
       });
     } else {
       dropdown.css({
@@ -119,7 +118,6 @@ if(jQuery) (function($) {
         top: trigger.offset().top + trigger.outerHeight() + vOffset
       });
     }
-
   }
 
   $(function() {
