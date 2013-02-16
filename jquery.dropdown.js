@@ -107,8 +107,8 @@ if(jQuery) (function($) {
     if( dropdown.hasClass('dropdown-relative') ) {
       dropdown.css({
         left: dropdown.hasClass('dropdown-anchor-right') ?
-        trigger.position().left - (dropdown.outerWidth(true) - trigger.outerWidth(true)) - parseInt(trigger.css('margin-right')) + hOffset :
-        trigger.position().left + parseInt(trigger.css('margin-left')) + hOffset,
+          trigger.position().left - (dropdown.outerWidth(true) - trigger.outerWidth(true)) - parseInt(trigger.css('margin-right')) + hOffset :
+          trigger.position().left + parseInt(trigger.css('margin-left')) + hOffset,
         top: trigger.position().top + trigger.outerHeight(true) - parseInt(trigger.css('margin-top')) + vOffset
       });
     } else {
