@@ -115,10 +115,8 @@ if(jQuery) (function($) {
 		
 	}
 	
-	$(function() {
-		$(document).on('click.dropdown', '[data-dropdown]', show);
-		$(document).on('click.dropdown', hide);
-		$(window).on('resize', position);
-	});
+	$(document).on('click.dropdown', '[data-dropdown]', show);
+	$(document).on('click.dropdown', hide);
+	$(window).on('resize', position);
 	
 })(jQuery);
