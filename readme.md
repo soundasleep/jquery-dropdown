@@ -1,6 +1,6 @@
 # jQuery Bootstrap-style Dropdowns #
 
-Copyright 2011 Cory LaViska for [A Beautiful Site, LLC.](http://abeautifulsite.net/)
+Copyright 2013 Cory LaViska for [A Beautiful Site, LLC.](http://abeautifulsite.net/)
 
 Inspired by [Bootstrap](http://twitter.github.com/bootstrap/javascript.html#dropdowns)
 
