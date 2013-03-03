@@ -76,7 +76,7 @@ if(jQuery) (function($) {
 			if( targetGroup.is('.dropdown-menu') ) {
 				// Did we click on an option? If so close it.
 				if( !targetGroup.is('A') ) return;
-			} else {	
+			} else {
 				// Nope, it's a panel. Leave it open.
 				return;
 			}
@@ -100,8 +100,8 @@ if(jQuery) (function($) {
 		
 		var dropdown = $('.dropdown:visible').eq(0),
 			trigger = dropdown.data('dropdown-trigger'),
-			hOffset = trigger ? parseInt(trigger.attr('data-horizontal-offset') || 0) : null,
-			vOffset = trigger ? parseInt(trigger.attr('data-vertical-offset') || 0) : null;
+			hOffset = trigger ? parseInt(trigger.attr('data-horizontal-offset') || 0, 10) : null,
+			vOffset = trigger ? parseInt(trigger.attr('data-vertical-offset') || 0, 10) : null;
 		
 		if( dropdown.length === 0 || !trigger ) return;
 		
