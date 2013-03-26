@@ -34,8 +34,13 @@ if(jQuery) (function($) {
 	
 	function show(event) {
 		
-		var trigger = $(this),
-			dropdown = $(trigger.attr('data-dropdown')),
+		var trigger = $(this);
+		
+		if (! trigger.attr('data-dropdown')) {
+		    trigger = trigger.parents('[data-dropdown]').first()
+		}
+		
+		var dropdown = $(trigger.attr('data-dropdown')),
 			isOpen = trigger.hasClass('dropdown-open');
 		
 		// In some cases we don't want to show it
