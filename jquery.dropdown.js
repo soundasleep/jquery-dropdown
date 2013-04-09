@@ -67,6 +67,10 @@ if(jQuery) (function($) {
 	
 	function hide(event) {
 		
+		// MT - stop hiding if target is document, this seems to be if you click on select options (Firefox)
+		if (event && event.target === document)
+	        	return;
+		
 		// In some cases we don't hide them
 		var targetGroup = event ? $(event.target).parents().addBack() : null;
 		
