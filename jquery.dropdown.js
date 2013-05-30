@@ -39,7 +39,7 @@ if(jQuery) (function($) {
 			isOpen = trigger.hasClass('dropdown-open');
 		
 		// In some cases we don't want to show it
-		if( trigger !== event.target && $(event.target).hasClass('dropdown-ignore') ) return;
+		if( trigger.hasClass('dropdown-ignore') ) return;
 		
 		event.preventDefault();
 		event.stopPropagation();
