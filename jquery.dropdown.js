@@ -39,7 +39,7 @@ if(jQuery) (function($) {
 			isOpen = trigger.hasClass('dropdown-open');
 		
 		// In some cases we don't want to show it
-		if( trigger !== event.target && $(event.target).hasClass('dropdown-ignore') ) return;
+		if( $(event.target).hasClass('dropdown-ignore') ) return;
 		
 		event.preventDefault();
 		event.stopPropagation();
@@ -105,8 +105,7 @@ if(jQuery) (function($) {
 		
 		if( dropdown.length === 0 || !trigger ) return;
 		
-		// Position the dropdown
-		// Position the dropdown relative-to-parent or relative-to-document
+		// Position the dropdown relative-to-parent...
 		if( dropdown.hasClass('dropdown-relative') ) {
 			dropdown.css({
 				left: dropdown.hasClass('dropdown-anchor-right') ?
@@ -115,6 +114,7 @@ if(jQuery) (function($) {
 				top: trigger.position().top + trigger.outerHeight(true) - parseInt(trigger.css('margin-top')) + vOffset
 			});
 		} else {
+			// ...or relative to document
 			dropdown.css({
 				left: dropdown.hasClass('dropdown-anchor-right') ? 
 					trigger.offset().left - (dropdown.outerWidth() - trigger.outerWidth()) + hOffset : trigger.offset().left + hOffset,
