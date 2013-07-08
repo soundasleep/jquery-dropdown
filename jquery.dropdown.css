@@ -1,11 +1,11 @@
-.dropdown {
+.jdropdown {
 	position: absolute;
 	z-index: 9999999;
 	display: none;
 }
 
-.dropdown .dropdown-menu,
-.dropdown .dropdown-panel {
+.jdropdown .jdropdown-menu,
+.jdropdown .jdropdown-panel {
 	min-width: 160px;
 	max-width: 360px;
 	list-style: none;
@@ -19,15 +19,15 @@
 	margin: 0;
 }
 
-.dropdown .dropdown-panel {
+.jdropdown .jdropdown-panel {
 	padding: 10px;
 }
 
-.dropdown.dropdown-tip {
+.jdropdown.jdropdown-tip {
 	margin-top: 8px;
 }
 
-.dropdown.dropdown-tip:before {
+.jdropdown.jdropdown-tip:before {
   position: absolute;
   top: -6px;
   left: 9px;
@@ -39,12 +39,12 @@
   display: inline-block;
 }
 
-.dropdown.dropdown-tip.dropdown-anchor-right:before {
+.jdropdown.jdropdown-tip.jdropdown-anchor-right:before {
 	left: auto;
 	right: 9px;
 }
 
-.dropdown.dropdown-tip:after {
+.jdropdown.jdropdown-tip:after {
   position: absolute;
   top: -5px;
   left: 10px;
@@ -55,27 +55,27 @@
   display: inline-block;
 }
 
-.dropdown.dropdown-tip.dropdown-anchor-right:after {
+.jdropdown.jdropdown-tip.jdropdown-anchor-right:after {
 	left: auto;
 	right: 10px;
 }
 
 
-.dropdown.dropdown-scroll .dropdown-menu,
-.dropdown.dropdown-scroll .dropdown-panel {
+.jdropdown.jdropdown-scroll .jdropdown-menu,
+.jdropdown.jdropdown-scroll .jdropdown-panel {
 	max-height: 358px;
 	overflow: auto;
 }
 
-.dropdown .dropdown-menu LI {
+.jdropdown .jdropdown-menu LI {
 	list-style: none;
 	padding: 0 0;
 	margin: 0;
 	line-height: 18px;
 }
 
-.dropdown .dropdown-menu LI > A,
-.dropdown .dropdown-menu LABEL {
+.jdropdown .jdropdown-menu LI > A,
+.jdropdown .jdropdown-menu LABEL {
 	display: block;
 	color: #555;
 	text-decoration: none;
@@ -84,14 +84,14 @@
 	white-space: nowrap;
 }
 
-.dropdown .dropdown-menu LI > A:hover,
-.dropdown .dropdown-menu LABEL:hover {
+.jdropdown .jdropdown-menu LI > A:hover,
+.jdropdown .jdropdown-menu LABEL:hover {
 	background-color: #08C;
 	color: #FFF;
 	cursor: pointer;
 }
 
-.dropdown .dropdown-menu .dropdown-divider {
+.jdropdown .jdropdown-menu .jdropdown-divider {
 	font-size: 1px;
 	border-top: solid 1px #E5E5E5;
 	padding: 0;
@@ -99,15 +99,15 @@
 }
 
 /* Icon Examples - icons courtesy of http://p.yusukekamiyamane.com/ */
-.dropdown.has-icons LI > A {
+.jdropdown.has-icons LI > A {
 	padding-left: 30px;
 	background-position: 8px center;
 	background-repeat: no-repeat;
 }
 
-.dropdown .undo A { background-image: url(icons/arrow-curve-180-left.png); }
-.dropdown .redo A { background-image: url(icons/arrow-curve.png); }
-.dropdown .cut A { background-image: url(icons/scissors.png); }
-.dropdown .copy A { background-image: url(icons/document-copy.png); }
-.dropdown .paste A { background-image: url(icons/clipboard.png); }
-.dropdown .delete A { background-image: url(icons/cross-script.png); }
+.jdropdown .undo A { background-image: url(icons/arrow-curve-180-left.png); }
+.jdropdown .redo A { background-image: url(icons/arrow-curve.png); }
+.jdropdown .cut A { background-image: url(icons/scissors.png); }
+.jdropdown .copy A { background-image: url(icons/document-copy.png); }
+.jdropdown .paste A { background-image: url(icons/clipboard.png); }
+.jdropdown .delete A { background-image: url(icons/cross-script.png); }
