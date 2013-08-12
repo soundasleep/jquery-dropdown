@@ -13,7 +13,10 @@ if(jQuery) (function($) {
 	$.extend($.fn, {
 		dropdown: function(method, data) {
 			
-			switch( method ) {
+		    switch (method) {
+		        case 'show':
+		            javascriptShow($(this));
+		            return $(this);
 				case 'hide':
 					hide();
 					return $(this);
@@ -63,6 +66,35 @@ if(jQuery) (function($) {
 				trigger: trigger
 			});
 		
+	}
+
+	function javascriptShow(object) {
+	    var trigger = object,
+			dropdown = $(trigger.attr('data-dropdown')),
+			isOpen = trigger.hasClass('dropdown-open');
+
+	    // In some cases we don't want to show it
+	    if (trigger !== object.target && $(object.target).hasClass('dropdown-ignore')) return;
+
+	    hide();
+
+	    if (isOpen || trigger.hasClass('dropdown-disabled')) return;
+
+	    // Show it
+	    trigger.addClass('dropdown-open');
+	    dropdown
+			.data('dropdown-trigger', trigger)
+			.show();
+
+	    // Position it
+	    position();
+
+	    // Trigger the show callback
+	    dropdown
+			.trigger('show', {
+			    dropdown: dropdown,
+			    trigger: trigger
+			});
 	}
 	
 	function hide(event) {
