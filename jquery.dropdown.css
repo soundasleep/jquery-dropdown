@@ -1,4 +1,6 @@
 .dropdown {
+    color: #000000;
+    font-size: 12px;
 	position: absolute;
 	z-index: 9999999;
 	display: none;
@@ -30,7 +32,7 @@
 .dropdown.dropdown-tip:before {
   position: absolute;
   top: -6px;
-  left: 9px;
+  left: /*9*/5px;
   content: '';
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
@@ -47,7 +49,7 @@
 .dropdown.dropdown-tip:after {
   position: absolute;
   top: -5px;
-  left: 10px;
+  left: /*10*/6px;
   content: '';
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
@@ -74,13 +76,32 @@
 	line-height: 18px;
 }
 
+.dropdown .dropdown-menu LI.dropdown-menu-title {
+    border-bottom: 1px solid #E5E5E5;
+	font-weight: bold;
+	margin-bottom: 5px;
+	padding: 3px 15px 5px;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.dropdown .dropdown-menu LI.checked,
+.dropdown .dropdown-menu LI.checked > a:hover {
+    /*background: url('../../img/icons/check.png') no-repeat 2px 4px !important;*/
+    background: none !important;
+    color: #555555 !important;
+    cursor: default;
+    font-weight: bold;
+    letter-spacing: -0.4px;
+}
+
 .dropdown .dropdown-menu LI > A,
 .dropdown .dropdown-menu LABEL {
 	display: block;
 	color: #555;
 	text-decoration: none;
 	line-height: 18px;
-	padding: 3px 15px;
+	padding: 3px 20px;
 	white-space: nowrap;
 }
 
