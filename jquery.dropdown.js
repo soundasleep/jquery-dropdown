@@ -74,15 +74,21 @@ if (jQuery) (function ($) {
 
 	function hide(event) {
 
-		// In some cases we don't hide them
-		var targetGroup = event ? $(event.target).parents().addBack() : null;
+	    // In some cases we don't hide them
+	    var target = event ? $(event.target) : null;
+		var targetGroup = event ? target.parents().addBack() : null;
 
 		// Are we clicking anywhere in a dropdown?
 		if (targetGroup && targetGroup.is('.dropdown')) {
-			// Is it a dropdown menu?
-			if (targetGroup.is('.dropdown-menu')) {
+			// Is it a dropdown menu or select object?
+		    if (targetGroup.is('.dropdown-menu')) {
 				// Did we click on an option? If so close it.
 				if (!targetGroup.is('A')) return;
+			} else if (targetGroup.is('.dropdown-select')) {
+				// Did we click on an option? If so close it.
+			    if (!targetGroup.is('A')) return;
+			    $(target.closest('.dropdown').data('trigger')).text($(event.target).text());
+			    target.closest("li").addClass("dropdown-selected").siblings().removeClass("dropdown-selected");
 			} else {
 				// Nope, it's a panel. Leave it open.
 				return;
@@ -133,5 +139,11 @@ if (jQuery) (function ($) {
 	$(document).on('click.dropdown', '[data-dropdown]', show);
 	$(document).on('click.dropdown', hide);
 	$(window).on('resize', position);
+	$(function () {
+	    $(".dropdown-select").each(function () {
+	        if ($.isEmptyObject($(this).find(".dropdown-selected"))) return;
+	        $($(this).closest(".dropdown").data("trigger")).text($(this).find(".dropdown-selected").text());
+	    });
+	});
 
 })(jQuery);

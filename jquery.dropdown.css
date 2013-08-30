@@ -106,33 +106,38 @@
         margin: 5px 0;
     }
 
-    /* Icon Examples - icons courtesy of http://p.yusukekamiyamane.com/ */
-    .dropdown.has-icons LI > A {
-        padding-left: 30px;
-        background-position: 8px center;
-        background-repeat: no-repeat;
-    }
+.dropdown-selected {
+    background: #E0E0E0;
+}
 
-    .dropdown .undo A {
-        background-image: url(icons/arrow-curve-180-left.png);
-    }
 
-    .dropdown .redo A {
-        background-image: url(icons/arrow-curve.png);
-    }
+/* Icon Examples - icons courtesy of http://p.yusukekamiyamane.com/ */
+.dropdown.has-icons LI > A {
+    padding-left: 30px;
+    background-position: 8px center;
+    background-repeat: no-repeat;
+}
 
-    .dropdown .cut A {
-        background-image: url(icons/scissors.png);
-    }
+.dropdown .undo A {
+    background-image: url(icons/arrow-curve-180-left.png);
+}
 
-    .dropdown .copy A {
-        background-image: url(icons/document-copy.png);
-    }
+.dropdown .redo A {
+    background-image: url(icons/arrow-curve.png);
+}
 
-    .dropdown .paste A {
-        background-image: url(icons/clipboard.png);
-    }
+.dropdown .cut A {
+    background-image: url(icons/scissors.png);
+}
 
-    .dropdown .delete A {
-        background-image: url(icons/cross-script.png);
-    }
+.dropdown .copy A {
+    background-image: url(icons/document-copy.png);
+}
+
+.dropdown .paste A {
+    background-image: url(icons/clipboard.png);
+}
+
+.dropdown .delete A {
+    background-image: url(icons/cross-script.png);
+}
