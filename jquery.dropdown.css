@@ -5,6 +5,7 @@
 }
 
     .dropdown .dropdown-menu,
+    .dropdown .dropdown-select,
     .dropdown .dropdown-panel {
         min-width: 160px;
         max-width: 360px;
@@ -62,12 +63,14 @@
 
 
     .dropdown.dropdown-scroll .dropdown-menu,
+    .dropdown.dropdown-scroll .dropdown-select,
     .dropdown.dropdown-scroll .dropdown-panel {
         max-height: 358px;
         overflow: auto;
     }
 
-    .dropdown .dropdown-menu LI {
+    .dropdown .dropdown-menu LI,
+    .dropdown .dropdown-select LI {
         list-style: none;
         padding: 0 0;
         margin: 0;
@@ -75,7 +78,9 @@
     }
 
         .dropdown .dropdown-menu LI > A,
-        .dropdown .dropdown-menu LABEL {
+        .dropdown .dropdown-menu LABEL,
+        .dropdown .dropdown-select LI > A,
+        .dropdown .dropdown-select LABEL {
             display: block;
             color: #555;
             text-decoration: none;
@@ -85,13 +90,16 @@
         }
 
             .dropdown .dropdown-menu LI > A:hover,
-            .dropdown .dropdown-menu LABEL:hover {
+            .dropdown .dropdown-menu LABEL:hover,
+            .dropdown .dropdown-select LI > A:hover,
+            .dropdown .dropdown-select LABEL:hover {
                 background-color: #08C;
                 color: #FFF;
                 cursor: pointer;
             }
 
-    .dropdown .dropdown-menu .dropdown-divider {
+    .dropdown .dropdown-menu .dropdown-divider,
+    .dropdown .dropdown-select .dropdown-divider {
         font-size: 1px;
         border-top: solid 1px #E5E5E5;
         padding: 0;
