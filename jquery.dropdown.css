@@ -109,6 +109,9 @@
 .dropdown-selected {
     background: #E0E0E0;
 }
+.dropdown .dropdown-select .dropdown-selected > A:hover {
+    background-color: #0AE;
+}
 
 
 /* Icon Examples - icons courtesy of http://p.yusukekamiyamane.com/ */
