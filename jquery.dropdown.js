@@ -1,11 +1,9 @@
 /*
  * jQuery dropdown: A simple dropdown plugin
  *
- * Inspired by Bootstrap: http://twitter.github.com/bootstrap/javascript.html#dropdowns
- *
  * Copyright 2013 Cory LaViska for A Beautiful Site, LLC. (http://abeautifulsite.net/)
  *
- * Dual licensed under the MIT / GPL Version 2 licenses
+ * Licensed under the MIT license: http://opensource.org/licenses/MIT
  *
 */
 if (jQuery) (function ($) {
@@ -66,8 +64,8 @@ if (jQuery) (function ($) {
         // Trigger the show callback
         dropdown
 			.trigger('show', {
-			    dropdown: dropdown,
-			    trigger: trigger
+				dropdown: dropdown,
+				trigger: trigger
 			});
 
     }
@@ -116,9 +114,9 @@ if (jQuery) (function ($) {
         if (dropdown.hasClass('dropdown-relative')) {
             dropdown.css({
                 left: dropdown.hasClass('dropdown-anchor-right') ?
-					trigger.position().left - (dropdown.outerWidth(true) - trigger.outerWidth(true)) - parseInt(trigger.css('margin-right')) + hOffset :
-					trigger.position().left + parseInt(trigger.css('margin-left')) + hOffset,
-                top: trigger.position().top + trigger.outerHeight(true) - parseInt(trigger.css('margin-top')) + vOffset
+					trigger.position().left - (dropdown.outerWidth(true) - trigger.outerWidth(true)) - parseInt(trigger.css('margin-right'), 10) + hOffset :
+					trigger.position().left + parseInt(trigger.css('margin-left'), 10) + hOffset,
+                top: trigger.position().top + trigger.outerHeight(true) - parseInt(trigger.css('margin-top'), 10) + vOffset
             });
         } else {
             // ...or relative to document
