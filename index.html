@@ -196,6 +196,7 @@
 	<h3>Special Classes</h3>
 	<ul>
 		<li>To disable the dropdown, add the <code>dropdown-disabled</code> class to the trigger element</li>
+		<li>To disable an item in the dropdown, add the <code>dropdown-item-disabled</code> class to the item</li>
 		<li>To offset positioning, add <code>data-horizontal-offset="10"</code> and/or <code>data-vertical-offset="10"</code> to the trigger element</li>
 		<li>To add a tip to the dropdown, add the <code>dropdown-tip</code> class to the dropdown element</li>
 		<li>To make the dropdown anchor to the right, add the <code>dropdown-anchor-right</code> class: <span class="example" data-dropdown="#dropdown-4">Example</span></li>
@@ -280,8 +281,8 @@
 			<li><a href="#2">Item 2</a></li>
 			<li><a href="#3">Item 3</a></li>
 			<li class="dropdown-divider"></li>
-			<li><a href="#4">Item 4</a></li>
-			<li><a href="#5">Item 5</a></li>
+			<li><a href="#4" class="dropdown-item-disabled">Item 4 (disabled)</a></li>
+			<li><a href="#5" class="dropdown-item-disabled">Item 5 (disabled)</a></li>
 			<li><a href="#5">Item 6</a></li>
 		</ul>
 	</div>
@@ -290,11 +291,11 @@
 		<ul class="dropdown-menu">
 			<li><label><input type="checkbox" /> Checkbox 1</label></li>
 			<li><label><input type="checkbox" /> Checkbox 2</label></li>
-			<li><label><input type="checkbox" /> Checkbox 3</label></li>
+			<li><label class="dropdown-item-disabled"><input type="checkbox" disabled="disabled"/> Checkbox 3</label></li>
 			<li class="dropdown-divider"></li>
 			<li><label><input type="radio" name="radio-group" checked="checked" /> Radio 1</label></li>
 			<li><label><input type="radio" name="radio-group" /> Radio 2</label></li>
-			<li><label><input type="radio" name="radio-group" /> Radio 3</label></li>
+			<li><label class="dropdown-item-disabled"><input type="radio" name="radio-group" disabled="disabled"/> Radio 3</label></li>
 		</ul>
 	</div>
 	

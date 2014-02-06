@@ -91,6 +91,19 @@
 	cursor: pointer;
 }
 
+.dropdown .dropdown-menu LI > A.dropdown-item-disabled,
+.dropdown .dropdown-menu LABEL.dropdown-item-disabled {
+	color: #999;
+	font-style: italic;
+}
+
+.dropdown .dropdown-menu LI > A.dropdown-item-disabled:hover,
+.dropdown .dropdown-menu LABEL.dropdown-item-disabled:hover {
+	color: #999;
+	background-color: #fff;
+	cursor: default;
+}
+
 .dropdown .dropdown-menu .dropdown-divider {
 	font-size: 1px;
 	border-top: solid 1px #E5E5E5;
