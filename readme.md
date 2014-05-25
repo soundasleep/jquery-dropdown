@@ -1,4 +1,4 @@
-# jQuery Bootstrap-style Dropdowns #
+# jQuery Bootstrap-style Dropdowns(Modified) #
 
 This is a fork of Jquery Drop down . The prmary disadvantage with Jquery dropdown is that it overrides the bootstrap default dropdowns. Hence if you have used exitsing drop downs in your website all of them will be rendered useless. 
 
