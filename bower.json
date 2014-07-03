@@ -1,6 +1,6 @@
 {
   "name": "jquery-dropdown",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": [
     "./jquery.dropdown.css",
     "./jquery.dropdown.js"
