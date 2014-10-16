@@ -7,35 +7,35 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 	<script type="text/javascript" src="jquery.dropdown.js"></script>
 	<style type="text/css">
-		
+
 		/* This CSS is for the demo page only */
-		
+
 		BODY {
 			width: 800px;
 			font: 14px sans-serif;
 			line-height: 1.4;
 			margin: 20px auto;
 		}
-		
+
 		H2 {
 			font-weight: normal;
 			border-bottom: solid 2px #DDD;
 			margin-top: 3em;
 		}
-		
+
 		H3 {
 			color: #666;
 			font-weight: normal;
 		}
-		
+
 		A {
 			color: #08C;
 		}
-		
+
 		A:hover {
 			color: #0CF;
 		}
-		
+
 		PRE {
 			background: #F8F8F8;
 			color: #666;
@@ -44,74 +44,74 @@
 			padding: 8px;
 			margin: 20px 0;
 		}
-		
+
 		CODE {
 			background: #F6F6F6;
 			color: #666;
 			padding: 1px 4px;
 		}
-		
+
 		.highlight {
 			color: #090;
 		}
-		
+
 		.example {
 			color: #08C;
 			cursor: pointer;
 			padding: 4px;
 			border-radius: 4px;
 		}
-		
+
 		.example:after {
 			font-family: Consolas, Courier New, Arial, sans-serif;
 			content: '↓';
 			margin-left: 6px;
 			color: #08C;
 		}
-		
+
 		.example:hover {
 			background: #F2F2F2;
 		}
-		
+
 		.example.dropdown-open {
 			background: #888;
 			color: #FFF;
 		}
-		
+
 		.example.dropdown-open:after {
 			color: #FFF;
 		}
-		
+
 	</style>
 </head>
 <body>
-	
+
 	<h1>jQuery Bootstrap-style Dropdowns</h1>
-	
+
 	<h2>Backstory</h2>
 	<p>
-		A really awesome framework called <a href="http://getbootstrap.com/">Bootstrap</a> was recently 
-		released by a couple of guys at Twitter.  You probably already heard of it by now.  And you probably already 
+		A really awesome framework called <a href="http://getbootstrap.com/">Bootstrap</a> was recently
+		released by a couple of guys at Twitter.  You probably already heard of it by now.  And you probably already
 		fell in love with it.
 	</p>
 	<p>
-		One of my favorite Boostrap plugins is <a href="http://getbootstrap.com/javascript/#dropdowns">dropdowns</a>, 
-		but I had a bit of difficulty getting started with them.  The docs say you can apply a dropdown to 
-		<em>nearly any element</em>, but they really seem to work best with Bootstrap’s navbar, tab, and pill 
-		components.  Since I was retrofitting an app that was around long before Bootstrap, this wasn’t going 
-		to work for me.  That and I was hoping to get a scrollable dropdown (with tips!) and a few other features 
+		One of my favorite Boostrap plugins is <a href="http://getbootstrap.com/javascript/#dropdowns">dropdowns</a>,
+		but I had a bit of difficulty getting started with them.  The docs say you can apply a dropdown to
+		<em>nearly any element</em>, but they really seem to work best with Bootstrap’s navbar, tab, and pill
+		components.  Since I was retrofitting an app that was around long before Bootstrap, this wasn’t going
+		to work for me.  That and I was hoping to get a scrollable dropdown (with tips!) and a few other features
 		out of the deal.  Thus, this plugin was born.
 	</p>
 	<p>
-		While the appearance of these dropdowns is almost identical to those of Bootstrap’s, it’s important to 
-		note that JavaScript for this plugin was developed entirely from scratch. Some CSS was borrowed, however, 
+		While the appearance of these dropdowns is almost identical to those of Bootstrap’s, it’s important to
+		note that JavaScript for this plugin was developed entirely from scratch. Some CSS was borrowed, however,
 		especially for generating those gorgeous tips.
 	</p>
 	<p>
 		Wanna see what they look like?  <span class="example" data-dropdown="#dropdown-1">Try it!</span>
 		Wanna contribute to this project?  <a href="https://github.com/claviska/jquery-dropdown">It’s on GitHub</a>
 	</p>
-	
+
 	<h2>Usage</h2>
 	<p>
 		1. Start by including the necessary files into your app:
@@ -121,11 +121,11 @@
 &lt;script type=&quot;text/javascript&quot; src=&quot;jquery.dropdown.js&quot;&gt;&lt;/script&gt;
 </pre>
 	<p>
-		2. Create a dropdown by placing a <code>div</code> with a unique <code>id</code> and the <code>dropdown</code> 
+		2. Create a dropdown by placing a <code>div</code> with a unique <code>id</code> and the <code>dropdown</code>
 		class immediately before your closing <code>body</code> tag.
 	</p>
 	<p>
-		For <strong>dropdown menus</strong>, the <code>div</code> should contain a <code>ul</code> with the 
+		For <strong>dropdown menus</strong>, the <code>div</code> should contain a <code>ul</code> with the
 		<code>dropdown-menu</code> class:
 	</p>
 <pre>
@@ -143,7 +143,7 @@
 </pre>
 
 	<p>
-		For <strong>dropdown panels</strong>, the <code>div</code> should contain a <code>div</code> with the 
+		For <strong>dropdown panels</strong>, the <code>div</code> should contain a <code>div</code> with the
 		<code>dropdown-panel</code> class:
 	</p>
 <pre>
@@ -155,14 +155,14 @@
 </pre>
 
 	<p>
-		3. Add the <code>data-dropdown</code> attribute to any HTML element, using the <code>id</code> of the 
-		dropdown as the value.  That’s all you have to do–you don’t even have to initialize it!  The plugin 
+		3. Add the <code>data-dropdown</code> attribute to any HTML element, using the <code>id</code> of the
+		dropdown as the value.  That’s all you have to do–you don’t even have to initialize it!  The plugin
 		also works on dynamically generated triggers.
 	</p>
 <pre>
 &lt;a href=&quot;#&quot; <span class="highlight">data-dropdown=&quot;#dropdown-1&quot;</span>&gt;dropdown&lt;/a&gt;
 </pre>
-	
+
 	<h2>Demos</h2>
 	<p>
 		Dropdowns can be attached to any element that you want:
@@ -172,27 +172,27 @@
 		and here’s a button <input type="button" value="Dropdown" data-dropdown="#dropdown-1" />
 		and here’s a <span class="example" data-dropdown="#dropdown-1">span</span>
 	</p>
-	
+
 	<h3>Scrolling</h3>
 	<p>
 		Now let’s see a really long dropdown that will scroll: <span class="example" data-dropdown="#dropdown-3">Example</span>
 	</p>
-	
+
 	<h3>Form Controls</h3>
 	<p>
 		You can add form controls to your dropdowns: <span class="example" data-dropdown="#dropdown-2">Example</span>
 	</p>
-	
+
 	<h3>With Icons</h3>
 	<p>
 		You can use CSS to add icons to your dropdowns: <span class="example" data-dropdown="#dropdown-5">Example</span>
 	</p>
-	
+
 	<h3>Panels</h3>
 	<p>
 		Dropdowns can have regular HTML, too. <span class="example" data-dropdown="#dropdown-6">Example</span>
 	</p>
-	
+
 	<h3>Special Classes</h3>
 	<ul>
 		<li>To disable the dropdown, add the <code>dropdown-disabled</code> class to the trigger element</li>
@@ -201,7 +201,7 @@
 		<li>To make the dropdown anchor to the right, add the <code>dropdown-anchor-right</code> class: <span class="example" data-dropdown="#dropdown-4">Example</span></li>
 		<li>To position a dropdown relative to its parent (as opposed to the document), add the <code>dropdown-relative</code> class to the dropdown container</li>
 	</ul>
-	
+
 	<h2>API</h2>
 	<p>
 		You probably won’t need these, but they’re there just in case:
@@ -217,7 +217,7 @@
 	<p>
 		Example usage: <code>$('#trigger').dropdown('<em>method</em>', <em>[value]</em>);</code>
 	</p>
-	
+
 	<h2>Events</h2>
 	<p>
 		You can attach events to each dropdown:
@@ -234,13 +234,13 @@
     console.log(dropdownData);
 });</pre>
 	</p>
-	
+
 	<h2>Q&amp;A</h2>
 	<ul>
 		<li>
 			<strong>How do I stop the dropdown from going off the screen?</strong><br />
-			This plugin was intended to be very lightweight—the initial release is less than 70 lines of code!  If you have a 
-			very elegant way to keep the dropdown within the viewport without using a dependency, let me know.  Otherwise, 
+			This plugin was intended to be very lightweight—the initial release is less than 70 lines of code!  If you have a
+			very elegant way to keep the dropdown within the viewport without using a dependency, let me know.  Otherwise,
 			position them higher or use the <code>dropdown-anchor-right</code> class.
 		</li>
 		<li>
@@ -249,7 +249,7 @@
 		</li>
 		<li>
 			<strong>Do they support submenus?</strong><br />
-			No, and they aren’t intended to. That would add a significant amount of complexity to the plugin and is really 
+			No, and they aren’t intended to. That would add a significant amount of complexity to the plugin and is really
 			outside the scope of this project.
 		</li>
 		<li>
@@ -258,7 +258,7 @@
 		</li>
 		<li>
 			<strong>Do they work in IE?</strong><br />
-			Yes, but you won’t see any tips in IE7 and you won’t see any box-shadows until IE9. They’re completely usable in 
+			Yes, but you won’t see any tips in IE7 and you won’t see any box-shadows until IE9. They’re completely usable in
 			IE 7/8, they’re just not as pretty.
 		</li>
 		<li>
@@ -266,13 +266,17 @@
 			Of course!  It’s licensed under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.
 		</li>
 		<li>
+			<strong>Which version of jQuery is required?</strong><br />
+			This plugin will work with jQuery 1.8 and higher.
+		</li>
+		<li>
 			<strong>Who made this?</strong><br />
-			The same guy that runs <a href="http://www.abeautifulsite.net/">A Beautiful Site, LLC.</a> and 
+			The same guy that runs <a href="http://www.abeautifulsite.net/">A Beautiful Site, LLC.</a> and
 			<a href="http://www.surrealcms.com/">Surreal CMS</a>.
 		</li>
 	</ul>
-	
-	
+
+
 	<!-- Remember to put your dropdown menus before your ending BODY tag -->
 	<div id="dropdown-1" class="dropdown dropdown-tip">
 		<ul class="dropdown-menu">
@@ -285,7 +289,7 @@
 			<li><a href="#5">Item 6</a></li>
 		</ul>
 	</div>
-	
+
 	<div id="dropdown-2" class="dropdown dropdown-tip">
 		<ul class="dropdown-menu">
 			<li><label><input type="checkbox" /> Checkbox 1</label></li>
@@ -297,7 +301,7 @@
 			<li><label><input type="radio" name="radio-group" /> Radio 3</label></li>
 		</ul>
 	</div>
-	
+
 	<div id="dropdown-3" class="dropdown dropdown-tip dropdown-scroll">
 		<ul class="dropdown-menu">
 			<li><a href="#1">Item 1</a></li>
@@ -336,8 +340,8 @@
 			<li><a href="#29">Item 29</a></li>
 			<li><a href="#30">Item 30</a></li>
 		</ul>
-	</div>	
-	
+	</div>
+
 	<div id="dropdown-4" class="dropdown dropdown-tip dropdown-anchor-right">
 		<ul class="dropdown-menu">
 			<li><a href="#1">Item 1</a></li>
@@ -349,7 +353,7 @@
 			<li><a href="#5">Item 6</a></li>
 		</ul>
 	</div>
-	
+
 	<div id="dropdown-5" class="dropdown dropdown-tip has-icons">
 		<ul class="dropdown-menu">
 			<li class="undo"><a href="#">Undo</a></li>
@@ -361,13 +365,13 @@
 			<li class="delete"><a href="#">Delete</a></li>
 		</ul>
 	</div>
-	
+
 	<div id="dropdown-6" class="dropdown dropdown-tip has-icons">
 		<div class="dropdown-panel">
-			Here is some <code>HTML</code> inside of a dropdown. You can put pretty much 
+			Here is some <code>HTML</code> inside of a dropdown. You can put pretty much
 			anything inside of a dropdown, so have fun with it!
 		</div>
 	</div>
-	
+
 </body>
 </html>
