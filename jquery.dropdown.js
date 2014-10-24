@@ -88,7 +88,7 @@ if (jQuery) (function ($) {
         }
 
         // Hide any dropdown that may be showing
-        $(document).find('.dropdown:visible').each(function () {
+        $(document).find('.dropdown:visible').not('.prevent-hide').each(function () {
             var dropdown = $(this);
             dropdown
 				.hide()
