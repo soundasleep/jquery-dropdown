@@ -21,9 +21,8 @@ Then add to your HTML two elements:
 - The element under which the dropdown should show with a `data-jq-dropdown` attribute that points to the anchor/id. 
 - The content of the dropdown in a div with a unique ide that is pointed to.
 
-This can be put anywhere on the page, for instance at the bottom just above the closing `</body> tag (since it can be loaded last on the page, as it won't be shown to the user initially).
+The dropdown div can be put anywhere on the page, for instance at the bottom just above the closing `</body>` tag (since it can be loaded last on the page, as it won't be shown to the user initially).
 
-Example:
 ```html
 <a href="#" data-jq-dropdown="#dropdown-1">dropdown</a>
 
