@@ -1,6 +1,6 @@
 .jq-dropdown {
 	position: absolute;
-	z-index: 9999999;
+	z-index: 1039;
 	display: none;
 }
 
