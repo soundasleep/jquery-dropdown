@@ -108,7 +108,7 @@
 		especially for generating those gorgeous tips.
 	</p>
 	<p>
-		Wanna see what they look like?  <span class="example" jq-data-dropdown="#jq-dropdown-1">Try it!</span>
+		Wanna see what they look like?  <span class="example" data-jq-dropdown="#jq-dropdown-1">Try it!</span>
 		Wanna contribute to this project?  <a href="https://github.com/claviska/jquery-jq-dropdown">It’s on GitHub</a>
 	</p>
 
@@ -155,12 +155,12 @@
 </pre>
 
 	<p>
-		3. Add the <code>jq-data-dropdown</code> attribute to any HTML element, using the <code>id</code> of the
+		3. Add the <code>data-jq-dropdown</code> attribute to any HTML element, using the <code>id</code> of the
 		jq-dropdown as the value.  That’s all you have to do–you don’t even have to initialize it!  The plugin
 		also works on dynamically generated triggers.
 	</p>
 <pre>
-&lt;a href=&quot;#&quot; <span class="highlight">jq-data-dropdown=&quot;#jq-dropdown-1&quot;</span>&gt;dropdown&lt;/a&gt;
+&lt;a href=&quot;#&quot; <span class="highlight">data-jq-dropdown=&quot;#jq-dropdown-1&quot;</span>&gt;dropdown&lt;/a&gt;
 </pre>
 
 	<h2>Demos</h2>
@@ -168,29 +168,29 @@
 		Dropdowns can be attached to any element that you want:
 	</p>
 	<p>
-		<a href="#" jq-data-dropdown="#jq-dropdown-1">Here’s a link</a>
-		and here’s a button <input type="button" value="Dropdown" jq-data-dropdown="#jq-dropdown-1" />
-		and here’s a <span class="example" jq-data-dropdown="#jq-dropdown-1">span</span>
+		<a href="#" data-jq-dropdown="#jq-dropdown-1">Here’s a link</a>
+		and here’s a button <input type="button" value="Dropdown" data-jq-dropdown="#jq-dropdown-1" />
+		and here’s a <span class="example" data-jq-dropdown="#jq-dropdown-1">span</span>
 	</p>
 
 	<h3>Scrolling</h3>
 	<p>
-		Now let’s see a really long jq-dropdown that will scroll: <span class="example" jq-data-dropdown="#jq-dropdown-3">Example</span>
+		Now let’s see a really long jq-dropdown that will scroll: <span class="example" data-jq-dropdown="#jq-dropdown-3">Example</span>
 	</p>
 
 	<h3>Form Controls</h3>
 	<p>
-		You can add form controls to your dropdowns: <span class="example" jq-data-dropdown="#jq-dropdown-2">Example</span>
+		You can add form controls to your dropdowns: <span class="example" data-jq-dropdown="#jq-dropdown-2">Example</span>
 	</p>
 
 	<h3>With Icons</h3>
 	<p>
-		You can use CSS to add icons to your dropdowns: <span class="example" jq-data-dropdown="#jq-dropdown-5">Example</span>
+		You can use CSS to add icons to your dropdowns: <span class="example" data-jq-dropdown="#jq-dropdown-5">Example</span>
 	</p>
 
 	<h3>Panels</h3>
 	<p>
-		Dropdowns can have regular HTML, too. <span class="example" jq-data-dropdown="#jq-dropdown-6">Example</span>
+		Dropdowns can have regular HTML, too. <span class="example" data-jq-dropdown="#jq-dropdown-6">Example</span>
 	</p>
 
 	<h3>Special Classes</h3>
@@ -198,7 +198,7 @@
 		<li>To disable the jq-dropdown, add the <code>jq-dropdown-disabled</code> class to the trigger element</li>
 		<li>To offset positioning, add <code>data-horizontal-offset="10"</code> and/or <code>data-vertical-offset="10"</code> to the trigger element</li>
 		<li>To add a tip to the jq-dropdown, add the <code>jq-dropdown-tip</code> class to the jq-dropdown element</li>
-		<li>To make the jq-dropdown anchor to the right, add the <code>jq-dropdown-anchor-right</code> class: <span class="example" jq-data-dropdown="#jq-dropdown-4">Example</span></li>
+		<li>To make the jq-dropdown anchor to the right, add the <code>jq-dropdown-anchor-right</code> class: <span class="example" data-jq-dropdown="#jq-dropdown-4">Example</span></li>
 		<li>To position a jq-dropdown relative to its parent (as opposed to the document), add the <code>jq-dropdown-relative</code> class to the jq-dropdown container</li>
 	</ul>
 

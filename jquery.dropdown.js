@@ -19,10 +19,10 @@ if (jQuery) (function ($) {
                     hide();
                     return $(this);
                 case 'attach':
-                    return $(this).attr('jq-data-dropdown', data);
+                    return $(this).attr('data-jq-dropdown', data);
                 case 'detach':
                     hide();
-                    return $(this).removeAttr('jq-data-dropdown');
+                    return $(this).removeAttr('data-jq-dropdown');
                 case 'disable':
                     return $(this).addClass('jq-dropdown-disabled');
                 case 'enable':
@@ -36,7 +36,7 @@ if (jQuery) (function ($) {
     function show(event, object) {
 
         var trigger = event ? $(this) : object,
-			jqDropdown = $(trigger.attr('jq-data-dropdown')),
+			jqDropdown = $(trigger.attr('data-jq-dropdown')),
 			isOpen = trigger.hasClass('jq-dropdown-open');
 
         // In some cases we don't want to show it
@@ -128,7 +128,7 @@ if (jQuery) (function ($) {
         }
     }
 
-    $(document).on('click.jq-dropdown', '[jq-data-dropdown]', show);
+    $(document).on('click.jq-dropdown', '[data-jq-dropdown]', show);
     $(document).on('click.jq-dropdown', hide);
     $(window).on('resize', position);
 
