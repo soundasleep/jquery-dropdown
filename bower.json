@@ -1,9 +1,9 @@
 {
-  "name": "jquery-dropdown",
-  "version": "1.0.5",
+  "name": "jquery-jq-dropdown",
+  "version": "2.0.0",
   "main": [
-    "./jquery.dropdown.css",
-    "./jquery.dropdown.js"
+    "./jquery.jq-dropdown.css",
+    "./jquery.jq-dropdown.js"
   ],
   "dependencies": {
     "jquery": ">=1.8.0"
