@@ -1,133 +1,133 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>jQuery Bootstrap-style Dropdowns</title>
-	<meta charset="utf-8" />
-	<link type="text/css" rel="stylesheet" href="jquery.dropdown.css" />
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-	<script type="text/javascript" src="jquery.dropdown.js"></script>
-	<style type="text/css">
+    <title>jQuery Bootstrap-style Dropdowns</title>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="jquery.dropdown.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.dropdown.js"></script>
+    <style type="text/css">
 
-		/* This CSS is for the demo page only */
+        /* This CSS is for the demo page only */
 
-		body {
-			width: 800px;
-			font: 14px sans-serif;
-			line-height: 1.4;
-			margin: 20px auto;
-		}
+        body {
+            width: 800px;
+            font: 14px sans-serif;
+            line-height: 1.4;
+            margin: 20px auto;
+        }
 
-		h2 {
-			font-weight: normal;
-			border-bottom: solid 2px #ddd;
-			margin-top: 3em;
-		}
+        h2 {
+            font-weight: normal;
+            border-bottom: solid 2px #ddd;
+            margin-top: 3em;
+        }
 
-		h3 {
-			color: #666;
-			font-weight: normal;
-		}
+        h3 {
+            color: #666;
+            font-weight: normal;
+        }
 
-		a {
-			color: #08c;
-		}
+        a {
+            color: #08c;
+        }
 
-		a:hover {
-			color: #0cf;
-		}
+        a:hover {
+            color: #0cf;
+        }
 
-		pre {
-			background: #f8f8f8;
-			color: #666;
-			border-radius: 8px;
-			box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
-			padding: 8px;
-			margin: 20px 0;
-		}
+        pre {
+            background: #f8f8f8;
+            color: #666;
+            border-radius: 8px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+            padding: 8px;
+            margin: 20px 0;
+        }
 
-		code {
-			background: #f6f6f6;
-			color: #666;
-			padding: 1px 4px;
-		}
+        code {
+            background: #f6f6f6;
+            color: #666;
+            padding: 1px 4px;
+        }
 
-		.highlight {
-			color: #090;
-		}
+        .highlight {
+            color: #090;
+        }
 
-		.example {
-			color: #08c;
-			cursor: pointer;
-			padding: 4px;
-			border-radius: 4px;
-		}
+        .example {
+            color: #08c;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+        }
 
-		.example:after {
-			font-family: Consolas, Courier New, Arial, sans-serif;
-			content: '↓';
-			margin-left: 6px;
-			color: #08c;
-		}
+        .example:after {
+            font-family: Consolas, Courier New, Arial, sans-serif;
+            content: '↓';
+            margin-left: 6px;
+            color: #08c;
+        }
 
-		.example:hover {
-			background: #f2f2f2;
-		}
+        .example:hover {
+            background: #f2f2f2;
+        }
 
-		.example.jq-dropdown-open {
-			background: #888;
-			color: #fff;
-		}
+        .example.jq-dropdown-open {
+            background: #888;
+            color: #fff;
+        }
 
-		.example.jq-dropdown-open:after {
-			color: #fff;
-		}
+        .example.jq-dropdown-open:after {
+            color: #fff;
+        }
 
-	</style>
+    </style>
 </head>
 <body>
 
-	<h1>jQuery Bootstrap-style Dropdowns</h1>
+    <h1>jQuery Bootstrap-style Dropdowns</h1>
 
-	<h2>Backstory</h2>
-	<p>
-		A really awesome framework called <a href="http://getbootstrap.com/">Bootstrap</a> was recently
-		released by a couple of guys at Twitter.  You probably already heard of it by now.  And you probably already
-		fell in love with it.
-	</p>
-	<p>
-		One of my favorite Boostrap plugins is <a href="http://getbootstrap.com/javascript/#dropdowns">dropdowns</a>,
-		but I had a bit of difficulty getting started with them.  The docs say you can apply a jq-dropdown to
-		<em>nearly any element</em>, but they really seem to work best with Bootstrap’s navbar, tab, and pill
-		components.  Since I was retrofitting an app that was around long before Bootstrap, this wasn’t going
-		to work for me.  That and I was hoping to get a scrollable jq-dropdown (with tips!) and a few other features
-		out of the deal.  Thus, this plugin was born.
-	</p>
-	<p>
-		While the appearance of these dropdowns is almost identical to those of Bootstrap’s, it’s important to
-		note that JavaScript for this plugin was developed entirely from scratch. Some CSS was borrowed, however,
-		especially for generating those gorgeous tips.
-	</p>
-	<p>
-		Wanna see what they look like?  <span class="example" data-jq-dropdown="#jq-dropdown-1">Try it!</span>
-		Wanna contribute to this project?  <a href="https://github.com/claviska/jquery-dropdown">It’s on GitHub</a>
-	</p>
+    <h2>Backstory</h2>
+    <p>
+        A really awesome framework called <a href="http://getbootstrap.com/">Bootstrap</a> was recently
+        released by a couple of guys at Twitter.  You probably already heard of it by now.  And you probably already
+        fell in love with it.
+    </p>
+    <p>
+        One of my favorite Boostrap plugins is <a href="http://getbootstrap.com/javascript/#dropdowns">dropdowns</a>,
+        but I had a bit of difficulty getting started with them.  The docs say you can apply a jq-dropdown to
+        <em>nearly any element</em>, but they really seem to work best with Bootstrap’s navbar, tab, and pill
+        components.  Since I was retrofitting an app that was around long before Bootstrap, this wasn’t going
+        to work for me.  That and I was hoping to get a scrollable jq-dropdown (with tips!) and a few other features
+        out of the deal.  Thus, this plugin was born.
+    </p>
+    <p>
+        While the appearance of these dropdowns is almost identical to those of Bootstrap’s, it’s important to
+        note that JavaScript for this plugin was developed entirely from scratch. Some CSS was borrowed, however,
+        especially for generating those gorgeous tips.
+    </p>
+    <p>
+        Wanna see what they look like?  <span class="example" data-jq-dropdown="#jq-dropdown-1">Try it!</span>
+        Wanna contribute to this project?  <a href="https://github.com/claviska/jquery-dropdown">It’s on GitHub</a>
+    </p>
 
-	<h2>Usage</h2>
-	<p>
-		1. Start by including the necessary files into your app:
-	</p>
+    <h2>Usage</h2>
+    <p>
+        1. Start by including the necessary files into your app:
+    </p>
 <pre>
 &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;jquery.dropdown.css&quot; /&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;jquery.dropdown.js&quot;&gt;&lt;/script&gt;
 </pre>
-	<p>
-		2. Create a jq-dropdown by placing a <code>div</code> with a unique <code>id</code> and the <code>jq-dropdown</code>
-		class immediately before your closing <code>body</code> tag.
-	</p>
-	<p>
-		For <strong>jq-dropdown menus</strong>, the <code>div</code> should contain a <code>ul</code> with the
-		<code>jq-dropdown-menu</code> class:
-	</p>
+    <p>
+        2. Create a jq-dropdown by placing a <code>div</code> with a unique <code>id</code> and the <code>jq-dropdown</code>
+        class immediately before your closing <code>body</code> tag.
+    </p>
+    <p>
+        For <strong>jq-dropdown menus</strong>, the <code>div</code> should contain a <code>ul</code> with the
+        <code>jq-dropdown-menu</code> class:
+    </p>
 <pre>
 &lt;div <span class="highlight">id=&quot;jq-dropdown-1&quot; class=&quot;jq-dropdown jq-dropdown-tip&quot;</span>&gt;
     &lt;ul <span class="highlight">class=&quot;jq-dropdown-menu&quot;</span>&gt;
@@ -142,219 +142,219 @@
 &lt;/div&gt;
 </pre>
 
-	<p>
-		For <strong>jq-dropdown panels</strong>, the <code>div</code> should contain a <code>div</code> with the
-		<code>jq-dropdown-panel</code> class:
-	</p>
+    <p>
+        For <strong>jq-dropdown panels</strong>, the <code>div</code> should contain a <code>div</code> with the
+        <code>jq-dropdown-panel</code> class:
+    </p>
 <pre>
 &lt;div <span class="highlight">id=&quot;jq-dropdown-1&quot; class=&quot;jq-dropdown jq-dropdown-tip&quot;</span>&gt;
     &lt;div <span class="highlight">class=&quot;jq-dropdown-panel&quot;</span>&gt;
-    	You can put whatever HTML you want in a panel!
+        You can put whatever HTML you want in a panel!
     &lt;/div&gt;
 &lt;/div&gt;
 </pre>
 
-	<p>
-		3. Add the <code>data-jq-dropdown</code> attribute to any HTML element, using the <code>id</code> of the
-		jq-dropdown as the value.  That’s all you have to do–you don’t even have to initialize it!  The plugin
-		also works on dynamically generated triggers.
-	</p>
+    <p>
+        3. Add the <code>data-jq-dropdown</code> attribute to any HTML element, using the <code>id</code> of the
+        jq-dropdown as the value.  That’s all you have to do–you don’t even have to initialize it!  The plugin
+        also works on dynamically generated triggers.
+    </p>
 <pre>
 &lt;a href=&quot;#&quot; <span class="highlight">data-jq-dropdown=&quot;#jq-dropdown-1&quot;</span>&gt;dropdown&lt;/a&gt;
 </pre>
 
-	<h2>Demos</h2>
-	<p>
-		Dropdowns can be attached to any element that you want:
-	</p>
-	<p>
-		<a href="#" data-jq-dropdown="#jq-dropdown-1">Here’s a link</a>
-		and here’s a button <input type="button" value="Dropdown" data-jq-dropdown="#jq-dropdown-1" />
-		and here’s a <span class="example" data-jq-dropdown="#jq-dropdown-1">span</span>
-	</p>
+    <h2>Demos</h2>
+    <p>
+        Dropdowns can be attached to any element that you want:
+    </p>
+    <p>
+        <a href="#" data-jq-dropdown="#jq-dropdown-1">Here’s a link</a>
+        and here’s a button <input type="button" value="Dropdown" data-jq-dropdown="#jq-dropdown-1" />
+        and here’s a <span class="example" data-jq-dropdown="#jq-dropdown-1">span</span>
+    </p>
 
-	<h3>Scrolling</h3>
-	<p>
-		Now let’s see a really long jq-dropdown that will scroll: <span class="example" data-jq-dropdown="#jq-dropdown-3">Example</span>
-	</p>
+    <h3>Scrolling</h3>
+    <p>
+        Now let’s see a really long jq-dropdown that will scroll: <span class="example" data-jq-dropdown="#jq-dropdown-3">Example</span>
+    </p>
 
-	<h3>Form Controls</h3>
-	<p>
-		You can add form controls to your dropdowns: <span class="example" data-jq-dropdown="#jq-dropdown-2">Example</span>
-	</p>
+    <h3>Form Controls</h3>
+    <p>
+        You can add form controls to your dropdowns: <span class="example" data-jq-dropdown="#jq-dropdown-2">Example</span>
+    </p>
 
-	<h3>Panels</h3>
-	<p>
-		Dropdowns can have regular HTML, too. <span class="example" data-jq-dropdown="#jq-dropdown-6">Example</span>
-	</p>
+    <h3>Panels</h3>
+    <p>
+        Dropdowns can have regular HTML, too. <span class="example" data-jq-dropdown="#jq-dropdown-6">Example</span>
+    </p>
 
-	<h3>Special Classes</h3>
-	<ul>
-		<li>To disable the jq-dropdown, add the <code>jq-dropdown-disabled</code> class to the trigger element</li>
-		<li>To offset positioning, add <code>data-horizontal-offset="10"</code> and/or <code>data-vertical-offset="10"</code> to the trigger element</li>
-		<li>To add a tip to the jq-dropdown, add the <code>jq-dropdown-tip</code> class to the jq-dropdown element</li>
-		<li>To make the jq-dropdown anchor to the right, add the <code>jq-dropdown-anchor-right</code> class: <span class="example" data-jq-dropdown="#jq-dropdown-4">Example</span></li>
-		<li>To position a jq-dropdown relative to its parent (as opposed to the document), add the <code>jq-dropdown-relative</code> class to the jq-dropdown container</li>
-	</ul>
+    <h3>Special Classes</h3>
+    <ul>
+        <li>To disable the jq-dropdown, add the <code>jq-dropdown-disabled</code> class to the trigger element</li>
+        <li>To offset positioning, add <code>data-horizontal-offset="10"</code> and/or <code>data-vertical-offset="10"</code> to the trigger element</li>
+        <li>To add a tip to the jq-dropdown, add the <code>jq-dropdown-tip</code> class to the jq-dropdown element</li>
+        <li>To make the jq-dropdown anchor to the right, add the <code>jq-dropdown-anchor-right</code> class: <span class="example" data-jq-dropdown="#jq-dropdown-4">Example</span></li>
+        <li>To position a jq-dropdown relative to its parent (as opposed to the document), add the <code>jq-dropdown-relative</code> class to the jq-dropdown container</li>
+    </ul>
 
-	<h2>API</h2>
-	<p>
-		You probably won’t need these, but they’re there just in case:
-	</p>
-	<ul>
-		<li><code>attach</code> – attach a jq-dropdown to the selected trigger element(s); pass in the <code>#jq-dropdown-id-1</code> as <code>value</code></li>
-		<li><code>detach</code> – detach a jq-dropdown from the selected trigger element(s)</li>
-		<li><code>enable</code> – enables the jq-dropdown and removes the <code>jq-dropdown-disabled</code> class from the trigger</li>
-		<li><code>disable</code> – disables the jq-dropdown and adds the <code>jq-dropdown-disabled</code> class to the trigger</li>
-		<li><code>hide</code> – hide the jq-dropdown</li>
-		<li><code>show</code> – show the jq-dropdown</li>
-	</ul>
-	<p>
-		Example usage: <code>$('#trigger').jq-dropdown('<em>method</em>', <em>[value]</em>);</code>
-	</p>
+    <h2>API</h2>
+    <p>
+        You probably won’t need these, but they’re there just in case:
+    </p>
+    <ul>
+        <li><code>attach</code> – attach a jq-dropdown to the selected trigger element(s); pass in the <code>#jq-dropdown-id-1</code> as <code>value</code></li>
+        <li><code>detach</code> – detach a jq-dropdown from the selected trigger element(s)</li>
+        <li><code>enable</code> – enables the jq-dropdown and removes the <code>jq-dropdown-disabled</code> class from the trigger</li>
+        <li><code>disable</code> – disables the jq-dropdown and adds the <code>jq-dropdown-disabled</code> class to the trigger</li>
+        <li><code>hide</code> – hide the jq-dropdown</li>
+        <li><code>show</code> – show the jq-dropdown</li>
+    </ul>
+    <p>
+        Example usage: <code>$('#trigger').jq-dropdown('<em>method</em>', <em>[value]</em>);</code>
+    </p>
 
-	<h2>Events</h2>
-	<p>
-		You can attach events to each jq-dropdown:
-	</p>
-	<ul>
-		<li><code>show</code> — triggered when the jq-dropdown is shown</li>
-		<li><code>hide</code> — triggered when the jq-dropdown is hidden</li>
-	</ul>
-	<p>
-		Example usage:
+    <h2>Events</h2>
+    <p>
+        You can attach events to each jq-dropdown:
+    </p>
+    <ul>
+        <li><code>show</code> — triggered when the jq-dropdown is shown</li>
+        <li><code>hide</code> — triggered when the jq-dropdown is hidden</li>
+    </ul>
+    <p>
+        Example usage:
 <pre>$('#jq-dropdown-id-1').on('show', function(event, dropdownData) {
     console.log(dropdownData);
 }).on('hide', function(event, dropdownData) {
     console.log(dropdownData);
 });</pre>
-	</p>
+    </p>
 
-	<h2>Q&amp;A</h2>
-	<ul>
-		<li>
-			<strong>How do I stop the jq-dropdown from going off the screen?</strong><br />
-			This plugin was intended to be very lightweight—the initial release is less than 70 lines of code!  If you have a
-			very elegant way to keep the jq-dropdown within the viewport without using a dependency, let me know.  Otherwise,
-			position them higher or use the <code>jq-dropdown-anchor-right</code> class.
-		</li>
-		<li>
-			<strong>How do I modify the jq-dropdown menu on the fly?</strong><br />
-			Just modify it like any other element, but leave the <code>id</code> intact.
-		</li>
-		<li>
-			<strong>Do they support submenus?</strong><br />
-			No, and they aren’t intended to. That would add a significant amount of complexity to the plugin and is really
-			outside the scope of this project.
-		</li>
-		<li>
-			<strong>Can I get rid of the tips?</strong><br />
-			Sure, just remove the <code>jq-dropdown-tip</code> class from your jq-dropdown.
-		</li>
-		<li>
-			<strong>Do they work in IE?</strong><br />
-			Yes, but you won’t see any tips in IE7 and you won’t see any box-shadows until IE9. They’re completely usable in
-			IE 7/8, they’re just not as pretty.
-		</li>
-		<li>
-			<strong>Is it free to use?</strong><br />
-			Of course!  It’s licensed under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.
-		</li>
-		<li>
-			<strong>Which version of jQuery is required?</strong><br />
-			This plugin will work with jQuery 1.8 and higher.
-		</li>
-		<li>
-			<strong>Who made this?</strong><br />
-			The same guy that runs <a href="http://www.abeautifulsite.net/">A Beautiful Site, LLC.</a> and
-			<a href="http://www.surrealcms.com/">Surreal CMS</a>.
-		</li>
-	</ul>
+    <h2>Q&amp;A</h2>
+    <ul>
+        <li>
+            <strong>How do I stop the jq-dropdown from going off the screen?</strong><br />
+            This plugin was intended to be very lightweight—the initial release is less than 70 lines of code!  If you have a
+            very elegant way to keep the jq-dropdown within the viewport without using a dependency, let me know.  Otherwise,
+            position them higher or use the <code>jq-dropdown-anchor-right</code> class.
+        </li>
+        <li>
+            <strong>How do I modify the jq-dropdown menu on the fly?</strong><br />
+            Just modify it like any other element, but leave the <code>id</code> intact.
+        </li>
+        <li>
+            <strong>Do they support submenus?</strong><br />
+            No, and they aren’t intended to. That would add a significant amount of complexity to the plugin and is really
+            outside the scope of this project.
+        </li>
+        <li>
+            <strong>Can I get rid of the tips?</strong><br />
+            Sure, just remove the <code>jq-dropdown-tip</code> class from your jq-dropdown.
+        </li>
+        <li>
+            <strong>Do they work in IE?</strong><br />
+            Yes, but you won’t see any tips in IE7 and you won’t see any box-shadows until IE9. They’re completely usable in
+            IE 7/8, they’re just not as pretty.
+        </li>
+        <li>
+            <strong>Is it free to use?</strong><br />
+            Of course!  It’s licensed under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.
+        </li>
+        <li>
+            <strong>Which version of jQuery is required?</strong><br />
+            This plugin will work with jQuery 1.8 and higher.
+        </li>
+        <li>
+            <strong>Who made this?</strong><br />
+            The same guy that runs <a href="http://www.abeautifulsite.net/">A Beautiful Site, LLC.</a> and
+            <a href="http://www.surrealcms.com/">Surreal CMS</a>.
+        </li>
+    </ul>
 
 
-	<!-- Remember to put your jq-dropdown menus before your ending BODY tag -->
-	<div id="jq-dropdown-1" class="jq-dropdown jq-dropdown-tip">
-		<ul class="jq-dropdown-menu">
-			<li><a href="#1">Item 1</a></li>
-			<li><a href="#2">Item 2</a></li>
-			<li><a href="#3">Item 3</a></li>
-			<li class="jq-dropdown-divider"></li>
-			<li><a href="#4">Item 4</a></li>
-			<li><a href="#5">Item 5</a></li>
-			<li><a href="#5">Item 6</a></li>
-		</ul>
-	</div>
+    <!-- Remember to put your jq-dropdown menus before your ending BODY tag -->
+    <div id="jq-dropdown-1" class="jq-dropdown jq-dropdown-tip">
+        <ul class="jq-dropdown-menu">
+            <li><a href="#1">Item 1</a></li>
+            <li><a href="#2">Item 2</a></li>
+            <li><a href="#3">Item 3</a></li>
+            <li class="jq-dropdown-divider"></li>
+            <li><a href="#4">Item 4</a></li>
+            <li><a href="#5">Item 5</a></li>
+            <li><a href="#5">Item 6</a></li>
+        </ul>
+    </div>
 
-	<div id="jq-dropdown-2" class="jq-dropdown jq-dropdown-tip">
-		<ul class="jq-dropdown-menu">
-			<li><label><input type="checkbox" /> Checkbox 1</label></li>
-			<li><label><input type="checkbox" /> Checkbox 2</label></li>
-			<li><label><input type="checkbox" /> Checkbox 3</label></li>
-			<li class="jq-dropdown-divider"></li>
-			<li><label><input type="radio" name="radio-group" checked="checked" /> Radio 1</label></li>
-			<li><label><input type="radio" name="radio-group" /> Radio 2</label></li>
-			<li><label><input type="radio" name="radio-group" /> Radio 3</label></li>
-		</ul>
-	</div>
+    <div id="jq-dropdown-2" class="jq-dropdown jq-dropdown-tip">
+        <ul class="jq-dropdown-menu">
+            <li><label><input type="checkbox" /> Checkbox 1</label></li>
+            <li><label><input type="checkbox" /> Checkbox 2</label></li>
+            <li><label><input type="checkbox" /> Checkbox 3</label></li>
+            <li class="jq-dropdown-divider"></li>
+            <li><label><input type="radio" name="radio-group" checked="checked" /> Radio 1</label></li>
+            <li><label><input type="radio" name="radio-group" /> Radio 2</label></li>
+            <li><label><input type="radio" name="radio-group" /> Radio 3</label></li>
+        </ul>
+    </div>
 
-	<div id="jq-dropdown-3" class="jq-dropdown jq-dropdown-tip jq-dropdown-scroll">
-		<ul class="jq-dropdown-menu">
-			<li><a href="#1">Item 1</a></li>
-			<li><a href="#2">Item 2</a></li>
-			<li><a href="#3">Item 3</a></li>
-			<li><a href="#4">Item 4</a></li>
-			<li><a href="#5">Item 5</a></li>
-			<li class="jq-dropdown-divider"></li>
-			<li><a href="#6">Item 6</a></li>
-			<li><a href="#7">Item 7</a></li>
-			<li><a href="#8">Item 8</a></li>
-			<li><a href="#9">Item 9</a></li>
-			<li><a href="#10">Item 10</a></li>
-			<li class="jq-dropdown-divider"></li>
-			<li><a href="#11">Item 11</a></li>
-			<li><a href="#12">Item 12</a></li>
-			<li><a href="#13">Item 13</a></li>
-			<li><a href="#14">Item 14</a></li>
-			<li><a href="#15">Item 15</a></li>
-			<li class="jq-dropdown-divider"></li>
-			<li><a href="#16">Item 16</a></li>
-			<li><a href="#17">Item 17</a></li>
-			<li><a href="#18">Item 18</a></li>
-			<li><a href="#19">Item 19</a></li>
-			<li><a href="#20">Item 20</a></li>
-			<li class="jq-dropdown-divider"></li>
-			<li><a href="#21">Item 21</a></li>
-			<li><a href="#22">Item 22</a></li>
-			<li><a href="#23">Item 23</a></li>
-			<li><a href="#24">Item 24</a></li>
-			<li><a href="#25">Item 25</a></li>
-			<li class="jq-dropdown-divider"></li>
-			<li><a href="#26">Item 26</a></li>
-			<li><a href="#27">Item 27</a></li>
-			<li><a href="#28">Item 28</a></li>
-			<li><a href="#29">Item 29</a></li>
-			<li><a href="#30">Item 30</a></li>
-		</ul>
-	</div>
+    <div id="jq-dropdown-3" class="jq-dropdown jq-dropdown-tip jq-dropdown-scroll">
+        <ul class="jq-dropdown-menu">
+            <li><a href="#1">Item 1</a></li>
+            <li><a href="#2">Item 2</a></li>
+            <li><a href="#3">Item 3</a></li>
+            <li><a href="#4">Item 4</a></li>
+            <li><a href="#5">Item 5</a></li>
+            <li class="jq-dropdown-divider"></li>
+            <li><a href="#6">Item 6</a></li>
+            <li><a href="#7">Item 7</a></li>
+            <li><a href="#8">Item 8</a></li>
+            <li><a href="#9">Item 9</a></li>
+            <li><a href="#10">Item 10</a></li>
+            <li class="jq-dropdown-divider"></li>
+            <li><a href="#11">Item 11</a></li>
+            <li><a href="#12">Item 12</a></li>
+            <li><a href="#13">Item 13</a></li>
+            <li><a href="#14">Item 14</a></li>
+            <li><a href="#15">Item 15</a></li>
+            <li class="jq-dropdown-divider"></li>
+            <li><a href="#16">Item 16</a></li>
+            <li><a href="#17">Item 17</a></li>
+            <li><a href="#18">Item 18</a></li>
+            <li><a href="#19">Item 19</a></li>
+            <li><a href="#20">Item 20</a></li>
+            <li class="jq-dropdown-divider"></li>
+            <li><a href="#21">Item 21</a></li>
+            <li><a href="#22">Item 22</a></li>
+            <li><a href="#23">Item 23</a></li>
+            <li><a href="#24">Item 24</a></li>
+            <li><a href="#25">Item 25</a></li>
+            <li class="jq-dropdown-divider"></li>
+            <li><a href="#26">Item 26</a></li>
+            <li><a href="#27">Item 27</a></li>
+            <li><a href="#28">Item 28</a></li>
+            <li><a href="#29">Item 29</a></li>
+            <li><a href="#30">Item 30</a></li>
+        </ul>
+    </div>
 
-	<div id="jq-dropdown-4" class="jq-dropdown jq-dropdown-tip jq-dropdown-anchor-right">
-		<ul class="jq-dropdown-menu">
-			<li><a href="#1">Item 1</a></li>
-			<li><a href="#2">Item 2</a></li>
-			<li><a href="#3">Item 3</a></li>
-			<li class="jq-dropdown-divider"></li>
-			<li><a href="#4">Item 4</a></li>
-			<li><a href="#5">Item 5</a></li>
-			<li><a href="#5">Item 6</a></li>
-		</ul>
-	</div>
+    <div id="jq-dropdown-4" class="jq-dropdown jq-dropdown-tip jq-dropdown-anchor-right">
+        <ul class="jq-dropdown-menu">
+            <li><a href="#1">Item 1</a></li>
+            <li><a href="#2">Item 2</a></li>
+            <li><a href="#3">Item 3</a></li>
+            <li class="jq-dropdown-divider"></li>
+            <li><a href="#4">Item 4</a></li>
+            <li><a href="#5">Item 5</a></li>
+            <li><a href="#5">Item 6</a></li>
+        </ul>
+    </div>
 
-	<div id="jq-dropdown-6" class="jq-dropdown jq-dropdown-tip has-icons">
-		<div class="jq-dropdown-panel">
-			Here is some <code>HTML</code> inside of a jq-dropdown. You can put pretty much
-			anything inside of a jq-dropdown, so have fun with it!
-		</div>
-	</div>
+    <div id="jq-dropdown-6" class="jq-dropdown jq-dropdown-tip has-icons">
+        <div class="jq-dropdown-panel">
+            Here is some <code>HTML</code> inside of a jq-dropdown. You can put pretty much
+            anything inside of a jq-dropdown, so have fun with it!
+        </div>
+    </div>
 
 </body>
 </html>

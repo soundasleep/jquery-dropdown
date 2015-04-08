@@ -36,8 +36,8 @@ if (jQuery) (function ($) {
     function show(event, object) {
 
         var trigger = event ? $(this) : object,
-			jqDropdown = $(trigger.attr('data-jq-dropdown')),
-			isOpen = trigger.hasClass('jq-dropdown-open');
+            jqDropdown = $(trigger.attr('data-jq-dropdown')),
+            isOpen = trigger.hasClass('jq-dropdown-open');
 
         // In some cases we don't want to show it
         if (event) {
@@ -55,18 +55,18 @@ if (jQuery) (function ($) {
         // Show it
         trigger.addClass('jq-dropdown-open');
         jqDropdown
-			.data('jq-dropdown-trigger', trigger)
-			.show();
+            .data('jq-dropdown-trigger', trigger)
+            .show();
 
         // Position it
         position();
 
         // Trigger the show callback
         jqDropdown
-			.trigger('show', {
-				jqDropdown: jqDropdown,
-				trigger: trigger
-			});
+            .trigger('show', {
+                jqDropdown: jqDropdown,
+                trigger: trigger
+            });
 
     }
 
@@ -91,9 +91,9 @@ if (jQuery) (function ($) {
         $(document).find('.jq-dropdown:visible').each(function () {
             var jqDropdown = $(this);
             jqDropdown
-				.hide()
-				.removeData('jq-dropdown-trigger')
-				.trigger('hide', { jqDropdown: jqDropdown });
+                .hide()
+                .removeData('jq-dropdown-trigger')
+                .trigger('hide', { jqDropdown: jqDropdown });
         });
 
         // Remove all jq-dropdown-open classes
@@ -104,9 +104,9 @@ if (jQuery) (function ($) {
     function position() {
 
         var jqDropdown = $('.jq-dropdown:visible').eq(0),
-			trigger = jqDropdown.data('jq-dropdown-trigger'),
-			hOffset = trigger ? parseInt(trigger.attr('data-horizontal-offset') || 0, 10) : null,
-			vOffset = trigger ? parseInt(trigger.attr('data-vertical-offset') || 0, 10) : null;
+            trigger = jqDropdown.data('jq-dropdown-trigger'),
+            hOffset = trigger ? parseInt(trigger.attr('data-horizontal-offset') || 0, 10) : null,
+            vOffset = trigger ? parseInt(trigger.attr('data-vertical-offset') || 0, 10) : null;
 
         if (jqDropdown.length === 0 || !trigger) return;
 
@@ -114,15 +114,15 @@ if (jQuery) (function ($) {
         if (jqDropdown.hasClass('jq-dropdown-relative')) {
             jqDropdown.css({
                 left: jqDropdown.hasClass('jq-dropdown-anchor-right') ?
-					trigger.position().left - (jqDropdown.outerWidth(true) - trigger.outerWidth(true)) - parseInt(trigger.css('margin-right'), 10) + hOffset :
-					trigger.position().left + parseInt(trigger.css('margin-left'), 10) + hOffset,
+                    trigger.position().left - (jqDropdown.outerWidth(true) - trigger.outerWidth(true)) - parseInt(trigger.css('margin-right'), 10) + hOffset :
+                    trigger.position().left + parseInt(trigger.css('margin-left'), 10) + hOffset,
                 top: trigger.position().top + trigger.outerHeight(true) - parseInt(trigger.css('margin-top'), 10) + vOffset
             });
         } else {
             // ...or relative to document
             jqDropdown.css({
                 left: jqDropdown.hasClass('jq-dropdown-anchor-right') ?
-					trigger.offset().left - (jqDropdown.outerWidth() - trigger.outerWidth()) + hOffset : trigger.offset().left + hOffset,
+                    trigger.offset().left - (jqDropdown.outerWidth() - trigger.outerWidth()) + hOffset : trigger.offset().left + hOffset,
                 top: trigger.offset().top + trigger.outerHeight() + vOffset
             });
         }
