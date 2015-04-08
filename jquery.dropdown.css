@@ -105,10 +105,3 @@
 	background-position: 8px center;
 	background-repeat: no-repeat;
 }
-
-.jq-dropdown .undo A { background-image: url(icons/arrow-curve-180-left.png); }
-.jq-dropdown .redo A { background-image: url(icons/arrow-curve.png); }
-.jq-dropdown .cut A { background-image: url(icons/scissors.png); }
-.jq-dropdown .copy A { background-image: url(icons/document-copy.png); }
-.jq-dropdown .paste A { background-image: url(icons/clipboard.png); }
-.jq-dropdown .delete A { background-image: url(icons/cross-script.png); }
