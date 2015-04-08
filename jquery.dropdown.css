@@ -1,11 +1,11 @@
-.dropdown {
+.jq-dropdown {
 	position: absolute;
-	z-index: 9999999;
+	z-index: 1039;
 	display: none;
 }
 
-.dropdown .dropdown-menu,
-.dropdown .dropdown-panel {
+.jq-dropdown .jq-dropdown-menu,
+.jq-dropdown .jq-dropdown-panel {
 	min-width: 160px;
 	max-width: 360px;
 	list-style: none;
@@ -19,15 +19,15 @@
 	margin: 0;
 }
 
-.dropdown .dropdown-panel {
+.jq-dropdown .jq-dropdown-panel {
 	padding: 10px;
 }
 
-.dropdown.dropdown-tip {
+.jq-dropdown.jq-dropdown-tip {
 	margin-top: 8px;
 }
 
-.dropdown.dropdown-tip:before {
+.jq-dropdown.jq-dropdown-tip:before {
   position: absolute;
   top: -6px;
   left: 9px;
@@ -39,12 +39,12 @@
   display: inline-block;
 }
 
-.dropdown.dropdown-tip.dropdown-anchor-right:before {
+.jq-dropdown.jq-dropdown-tip.jq-dropdown-anchor-right:before {
 	left: auto;
 	right: 9px;
 }
 
-.dropdown.dropdown-tip:after {
+.jq-dropdown.jq-dropdown-tip:after {
   position: absolute;
   top: -5px;
   left: 10px;
@@ -55,27 +55,27 @@
   display: inline-block;
 }
 
-.dropdown.dropdown-tip.dropdown-anchor-right:after {
+.jq-dropdown.jq-dropdown-tip.jq-dropdown-anchor-right:after {
 	left: auto;
 	right: 10px;
 }
 
 
-.dropdown.dropdown-scroll .dropdown-menu,
-.dropdown.dropdown-scroll .dropdown-panel {
+.jq-dropdown.jq-dropdown-scroll .jq-dropdown-menu,
+.jq-dropdown.jq-dropdown-scroll .jq-dropdown-panel {
 	max-height: 358px;
 	overflow: auto;
 }
 
-.dropdown .dropdown-menu LI {
+.jq-dropdown .jq-dropdown-menu LI {
 	list-style: none;
 	padding: 0 0;
 	margin: 0;
 	line-height: 18px;
 }
 
-.dropdown .dropdown-menu LI > A,
-.dropdown .dropdown-menu LABEL {
+.jq-dropdown .jq-dropdown-menu LI > A,
+.jq-dropdown .jq-dropdown-menu LABEL {
 	display: block;
 	color: #555;
 	text-decoration: none;
@@ -85,14 +85,14 @@
 	white-space: nowrap;
 }
 
-.dropdown .dropdown-menu LI > A:hover,
-.dropdown .dropdown-menu LABEL:hover {
+.jq-dropdown .jq-dropdown-menu LI > A:hover,
+.jq-dropdown .jq-dropdown-menu LABEL:hover {
 	background-color: #08C;
 	color: #FFF;
 	cursor: pointer;
 }
 
-.dropdown .dropdown-menu .dropdown-divider {
+.jq-dropdown .jq-dropdown-menu .jq-dropdown-divider {
 	font-size: 1px;
 	border-top: solid 1px #E5E5E5;
 	padding: 0;
@@ -100,15 +100,15 @@
 }
 
 /* Icon Examples - icons courtesy of http://p.yusukekamiyamane.com/ */
-.dropdown.has-icons LI > A {
+.jq-dropdown.has-icons LI > A {
 	padding-left: 30px;
 	background-position: 8px center;
 	background-repeat: no-repeat;
 }
 
-.dropdown .undo A { background-image: url(icons/arrow-curve-180-left.png); }
-.dropdown .redo A { background-image: url(icons/arrow-curve.png); }
-.dropdown .cut A { background-image: url(icons/scissors.png); }
-.dropdown .copy A { background-image: url(icons/document-copy.png); }
-.dropdown .paste A { background-image: url(icons/clipboard.png); }
-.dropdown .delete A { background-image: url(icons/cross-script.png); }
+.jq-dropdown .undo A { background-image: url(icons/arrow-curve-180-left.png); }
+.jq-dropdown .redo A { background-image: url(icons/arrow-curve.png); }
+.jq-dropdown .cut A { background-image: url(icons/scissors.png); }
+.jq-dropdown .copy A { background-image: url(icons/document-copy.png); }
+.jq-dropdown .paste A { background-image: url(icons/clipboard.png); }
+.jq-dropdown .delete A { background-image: url(icons/cross-script.png); }
