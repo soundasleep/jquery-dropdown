@@ -1,11 +1,11 @@
 /*
- * jQuery jq-dropdown: A simple dropdown plugin
+ * jQuery Dropdown: A simple dropdown plugin
  *
- * Copyright A Beautiful Site, LLC. (http://www.abeautifulsite.net/)
+ * Copyright A Beautiful Site, LLC: http://www.abeautifulsite.net/
  *
  * Licensed under the MIT license: http://opensource.org/licenses/MIT
  *
-*/
+ */
 if (jQuery) (function ($) {
 
     $.extend($.fn, {
