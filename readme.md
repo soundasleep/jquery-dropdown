@@ -6,4 +6,4 @@ Licensed under the MIT license: http://opensource.org/licenses/MIT
 
 ## Demo & Documentation ##
 
-http://labs.abeautifulsite.net/jquery-jq-dropdown/
+http://labs.abeautifulsite.net/jquery-dropdown/
