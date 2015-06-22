@@ -2,7 +2,7 @@
   "name": "jquery-jq-dropdown",
   "version": "2.0.0",
   "main": [
-    "./jquery.dropdown.min.css",
+    "./jquery.dropdown.less",
     "./jquery.dropdown.js"
   ],
   "dependencies": {
