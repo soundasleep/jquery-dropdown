@@ -87,17 +87,26 @@ if (jQuery) (function ($) {
             }
         }
 
-        // Hide any dropdown that may be showing
+        // Trigger the event early, so that it might be prevented on the visible popups
+        var hideEvent = jQuery.Event("hide");
+
         $(document).find('.dropdown:visible').each(function () {
             var dropdown = $(this);
-            dropdown
-				.hide()
-				.removeData('dropdown-trigger')
-				.trigger('hide', { dropdown: dropdown });
-        });
+            dropdown.trigger(hideEvent, { dropdown: dropdown });
+          });
 
-        // Remove all dropdown-open classes
-        $(document).find('.dropdown-open').removeClass('dropdown-open');
+        if(!hideEvent.isDefaultPrevented()) {
+          // Hide any dropdown that may be showing
+          $(document).find('.dropdown:visible').each(function () {
+              var dropdown = $(this);
+              dropdown
+        				.hide()
+        				.removeData('dropdown-trigger');
+          });
+
+          // Remove all dropdown-open classes
+          $(document).find('.dropdown-open').removeClass('dropdown-open');
+        }
 
     }
 
