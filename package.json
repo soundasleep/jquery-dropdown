@@ -1,0 +1,23 @@
+{
+  "name": "jquery-dropdown",
+  "version": "2.0.2",
+  "description": "Minimal dropdown as a jQuery plugin",
+  "main": "jquery.dropdown.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claviska/jquery-dropdown.git"
+  },
+  "keywords": [
+    "jquery",
+    "dropdown"
+  ],
+  "author": "Cory LaViska",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/claviska/jquery-dropdown/issues"
+  },
+  "homepage": "https://github.com/claviska/jquery-dropdown#readme"
+}
