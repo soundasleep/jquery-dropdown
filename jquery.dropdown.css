@@ -1,5 +1,4 @@
-/*
- * jQuery Dropdown: A simple dropdown plugin
+/* jQuery Dropdown: A simple dropdown plugin
  *
  * Contribute: https://github.com/claviska/jquery-dropdown
  *
@@ -17,7 +16,7 @@
   max-width: 360px;
   list-style: none;
   background: white;
-  border: solid 1px #dddddd;
+  border: solid 1px #ddd;
   border-radius: 4px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   overflow: visible;
@@ -34,17 +33,17 @@
   position: absolute;
   top: -6px;
   left: 9px;
-  content: '';
+  content: "";
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-bottom: 7px solid #dddddd;
+  border-bottom: 7px solid #ddd;
   display: inline-block;
 }
 .jq-dropdown.jq-dropdown-tip:after {
   position: absolute;
   top: -5px;
   left: 10px;
-  content: '';
+  content: "";
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-bottom: 6px solid white;
