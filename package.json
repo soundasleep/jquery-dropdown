@@ -1,6 +1,6 @@
 {
-  "name": "jquery-dropdown",
-  "version": "2.0.2",
+  "name": "@claviska/jquery-dropdown",
+  "version": "2.0.3",
   "description": "Minimal dropdown as a jQuery plugin",
   "main": "jquery.dropdown.js",
   "scripts": {
