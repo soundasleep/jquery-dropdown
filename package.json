@@ -19,5 +19,19 @@
   "bugs": {
     "url": "https://github.com/claviska/jquery-dropdown/issues"
   },
-  "homepage": "https://github.com/claviska/jquery-dropdown#readme"
+  "homepage": "https://github.com/claviska/jquery-dropdown#readme",
+  "dependencies": {
+    "webpack": "^1.13.1"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.4",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-es2015-webpack": "^6.4.3",
+    "css-loader": "^0.23.1",
+    "node-sass": "^3.8.0",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1"
+  }
 }

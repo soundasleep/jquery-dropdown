@@ -1,8 +1,7 @@
 {
   "name": "jquery-dropdown",
   "main": [
-    "./jquery.dropdown.css",
-    "./jquery.dropdown.js"
+    "./dist/jquery.dropdown.js"
   ],
   "dependencies": {
     "jquery": ">=1.8.0"
