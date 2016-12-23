@@ -6,6 +6,7 @@
  * @license: MIT license: http://opensource.org/licenses/MIT
  *
  */
+require('./jquery.dropdown.sass')
 if (jQuery) (function ($) {
 
     $.extend($.fn, {
