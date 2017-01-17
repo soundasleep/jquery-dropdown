@@ -87,8 +87,10 @@ if (jQuery) (function ($) {
             }
         }
 
-        // Hide any jq-dropdown that may be showing
-        $(document).find('.jq-dropdown:visible').each(function () {
+        // Trigger the event early, so that it might be prevented on the visible popups
+        var hideEvent = jQuery.Event("hide");
+
+        $(document).find('.dropdown:visible').each(function () {
             var jqDropdown = $(this);
             jqDropdown
                 .hide()
@@ -96,9 +98,19 @@ if (jQuery) (function ($) {
                 .trigger('hide', { jqDropdown: jqDropdown });
         });
 
-        // Remove all jq-dropdown-open classes
-        $(document).find('.jq-dropdown-open').removeClass('jq-dropdown-open');
+        if(!hideEvent.isDefaultPrevented()) {
+            // Hide any jq-dropdown that may be showing
+            $(document).find('.dropdown:visible').each(function () {
+                var jqDropdown = $(this);
+                jqDropdown
+                    .hide()
+                    .removeData('jq-dropdown-trigger')
+                    .trigger('hide', { jqDropdown: jqDropdown });
+            });
 
+            // Remove all jq-dropdown-open classes
+            $(document).find('.jq-dropdown-open').removeClass('jq-dropdown-open');
+        }
     }
 
     function position() {
