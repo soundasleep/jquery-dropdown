@@ -52,6 +52,9 @@ if (jQuery) (function ($) {
 
         if (isOpen || trigger.hasClass('jq-dropdown-disabled')) return;
 
+        // Relocate it
+        relocate(jqDropdown);
+
         // Show it
         trigger.addClass('jq-dropdown-open');
         jqDropdown
@@ -138,6 +141,24 @@ if (jQuery) (function ($) {
                 top: trigger.offset().top + trigger.outerHeight() + vOffset
             });
         }
+    }
+
+    /**
+     * Relocates .jq-dropdown elements to end of body.
+     * https://github.com/claviska/jquery-dropdown/issues/82
+     * @param event jQuery.on() event
+     * @param object (optional) Specific element to relocate
+     */
+    function relocate(object) {
+
+        var elements = '.jq-dropdown';
+
+        if (typeof object !== 'undefined' || object !== null) {
+            if ($(object).parent().is('body')) return; // return if already on body.
+            elements = object
+        }
+        $(elements).appendTo(document.body);
+
     }
 
     $(document).on('click.jq-dropdown', '[data-jq-dropdown]', show);
