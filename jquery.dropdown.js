@@ -36,8 +36,7 @@ if (jQuery) (function ($) {
     function show(event, object) {
 
         var trigger = event ? $(this) : object,
-            jqDropdown = $(trigger.attr('data-jq-dropdown')),
-            isOpen = trigger.hasClass('jq-dropdown-open');
+            jqDropdown = $(trigger.attr('data-jq-dropdown'));
 
         // In some cases we don't want to show it
         if (event) {
@@ -48,9 +47,24 @@ if (jQuery) (function ($) {
         } else {
             if (trigger !== object.target && $(object.target).hasClass('jq-dropdown-ignore')) return;
         }
-        hide();
+        
+        // Mark parent jq-dropdown-open classes to be kept
+        var elementsKeep = $(event.target).parents();
+        var doHide = true;
+        for (var i = 0; i < elementsKeep.length; i++) {
+            if ($(elementsKeep[i]).hasClass('jq-dropdown-menu')) {
+                console.log("keep! " + elementsKeep[i]);
+                $(elementsKeep[i]).addClass('jq-dropdown-keep-open');
+                $(elementsKeep[i].parentNode).addClass('jq-dropdown-keep-open');
+                doHide = false;
+            } else {
+                elementsKeep.splice(i,1);
+                i--;
+            }
+        }
+        if (doHide) hide();
 
-        if (isOpen || trigger.hasClass('jq-dropdown-disabled')) return;
+        if (trigger.hasClass('jq-dropdown-disabled')) return;
 
         // Show it
         trigger.addClass('jq-dropdown-open');
@@ -74,6 +88,7 @@ if (jQuery) (function ($) {
 
         // In some cases we don't hide them
         var targetGroup = event ? $(event.target).parents().addBack() : null;
+        var hideOtherPanels = true;
 
         // Are we clicking anywhere in a jq-dropdown?
         if (targetGroup && targetGroup.is('.jq-dropdown')) {
@@ -81,6 +96,7 @@ if (jQuery) (function ($) {
             if (targetGroup.is('.jq-dropdown-menu')) {
                 // Did we click on an option? If so close it.
                 if (!targetGroup.is('A')) return;
+                hideOtherPanels = false;
             } else {
                 // Nope, it's a panel. Leave it open.
                 return;
@@ -92,24 +108,29 @@ if (jQuery) (function ($) {
 
         $(document).find('.jq-dropdown:visible').each(function () {
             var jqDropdown = $(this);
-            jqDropdown
-                .hide()
-                .removeData('jq-dropdown-trigger')
-                .trigger('hide', { jqDropdown: jqDropdown });
+            if (jqDropdown.hasClass('jq-dropdown-keep-open')) {
+                jqDropdown.removeClass('jq-dropdown-keep-open');
+            } else {
+                jqDropdown
+                    .hide();
+                    .removeData('jq-dropdown-trigger');
+                    .trigger('hide', { jqDropdown: jqDropdown });
+            }
         });
 
-        if(!hideEvent.isDefaultPrevented()) {
-            // Hide any jq-dropdown that may be showing
-            $(document).find('.jq-dropdown:visible').each(function () {
-                var jqDropdown = $(this);
-                jqDropdown
-                    .hide()
-                    .removeData('jq-dropdown-trigger')
-                    .trigger('hide', { jqDropdown: jqDropdown });
-            });
-
-            // Remove all jq-dropdown-open classes
-            $(document).find('.jq-dropdown-open').removeClass('jq-dropdown-open');
+        if(!hideEvent.isDefaultPrevented()) {            
+            // Remove all jq-dropdown-open classes not marked
+            if (hideOtherPanels) {
+                var elementsRemove = $(document).find('.jq-dropdown-open');
+                for (var i = 0; i < elementsRemove.length; i++) {
+                    console.log(elementsRemove[i]);
+                    if ($(elementsRemove[i]).hasClass('jq-dropdown-keep-open')) {
+                        $(elementsRemove[i]).removeClass('jq-dropdown-keep-open');
+                    } else {
+                        $(elementsRemove[i]).removeClass('jq-dropdown-open');
+                    }
+                }
+            }
         }
     }
 
