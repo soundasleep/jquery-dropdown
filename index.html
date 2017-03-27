@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <link type="text/css" rel="stylesheet" href="jquery.dropdown.min.css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-    <script type="text/javascript" src="jquery.dropdown.min.js"></script>
+    <script type="text/javascript" src="jquery.dropdown.js"></script>
     <style type="text/css">
 
         /* This CSS is for the demo page only */
@@ -105,6 +105,10 @@
     <p>
         Wanna see what they look like?  <span class="example" data-jq-dropdown="#jq-dropdown-1">Try it!</span>
         Wanna contribute to this project?  <a href="https://github.com/claviska/jquery-dropdown">It’s on GitHub</a>
+    </p>
+    <p>
+        Test multi menus:
+        <p class="example" data-jq-dropdown="#jq-dropdown-multiA">Click Me</p>
     </p>
 
     <h2>Usage</h2>
@@ -268,6 +272,36 @@
 
 
     <!-- Remember to put your jq-dropdown menus before your ending BODY tag -->
+    <div id="jq-dropdown-multiA" class="jq-dropdown jq-dropdown-tip">
+        <ul class="jq-dropdown-menu">
+            <li><p data-jq-dropdown="#jq-dropdown-multiB">Item 1</p></li>
+            <li><p data-jq-dropdown="#jq-dropdown-multiB">Item 2</p></li>
+            <li><p data-jq-dropdown="#jq-dropdown-multiB">Item 3</p></li>
+            <li class="jq-dropdown-divider"></li>
+            <li><p data-jq-dropdown="#jq-dropdown-multiC">Item 4</p></li>
+            <li><p data-jq-dropdown="#jq-dropdown-multiC">Item 5</p></li>
+            <li><p data-jq-dropdown="#jq-dropdown-multiC">Item 6</p></li>
+        </ul>
+    </div>
+    
+    <div id="jq-dropdown-multiB" class="jq-dropdown jq-dropdown-tip">
+        <ul class="jq-dropdown-menu">
+            <li><a href="#1">Item 1</a>Item A</li>
+            <li><a href="#2">Item 2</a>Item B</li>
+            <li><a href="#3">Item 3</a>Item C</li>
+        </ul>
+    </div>
+    
+    <div id="jq-dropdown-multiC" class="jq-dropdown jq-dropdown-tip">
+        <ul class="jq-dropdown-menu">
+            <li><p data-jq-dropdown="#jq-dropdown-multiB">D</p></li>
+            <li><p data-jq-dropdown="#jq-dropdown-multiB">E</p></li>
+            <li><p data-jq-dropdown="#jq-dropdown-multiB">F</p></li>
+        </ul>
+    </div>
+
+
+    
     <div id="jq-dropdown-1" class="jq-dropdown jq-dropdown-tip">
         <ul class="jq-dropdown-menu">
             <li><a href="#1">Item 1</a></li>

@@ -49,26 +49,38 @@ if (jQuery) (function ($) {
         }
         
         // Mark parent jq-dropdown-open classes to be kept
-        var elementsKeep = $(event.target).parents();
-        var doHide = true;
-        for (var i = 0; i < elementsKeep.length; i++) {
-            if ($(elementsKeep[i]).hasClass('jq-dropdown-menu')) {
-                console.log("keep! " + elementsKeep[i]);
-                $(elementsKeep[i]).addClass('jq-dropdown-keep-open');
-                $(elementsKeep[i].parentNode).addClass('jq-dropdown-keep-open');
-                doHide = false;
-            } else {
+        var dropdownParents = $(event.target).parents();
+        var maxParent = 0;
+        for (var i = 0; i < dropdownParents.length; i++) {
+            var check = $(dropdownParents[i]).attr('jq-dropdown-menu-order')
+            if (check != null && parseInt(check) > maxParent) {
+                maxParent = parseInt(check);
+            }
+        }
+        
+        // hide all the menus that are a child of the parent
+        var hideEvent = jQuery.Event('hide', {'childrenMenusOf' : maxParent });
+        jQuery('body').trigger(hideEvent);
+        
+         /*else {
                 elementsKeep.splice(i,1);
                 i--;
             }
-        }
-        if (doHide) hide();
+        console.log("keep! " + dropdownParents[i]);
+                $(elementsKeep[i]).addClass('jq-dropdown-keep-open');
+                $(elementsKeep[i].parentNode).addClass('jq-dropdown-keep-open');
+                doHide = false;*/
+        
+        hide(hideEvent);
 
         if (trigger.hasClass('jq-dropdown-disabled')) return;
 
         // Show it
         trigger.addClass('jq-dropdown-open');
+        trigger.addClass('jq-dropdown-open');
+        trigger.attr('jq-dropdown-menu-order', (maxParent + 1));
         jqDropdown
+            .attr('jq-dropdown-menu-order', (maxParent + 1))
             .data('jq-dropdown-trigger', trigger)
             .show();
 
@@ -81,14 +93,16 @@ if (jQuery) (function ($) {
                 jqDropdown: jqDropdown,
                 trigger: trigger
             });
-
     }
 
     function hide(event) {
 
         // In some cases we don't hide them
         var targetGroup = event ? $(event.target).parents().addBack() : null;
-        var hideOtherPanels = true;
+        var parentMenu = null;
+        if (event.hasOwnProperty('childrenMenusOf')) {
+            parentMenu = event.childrenMenusOf;
+        }
 
         // Are we clicking anywhere in a jq-dropdown?
         if (targetGroup && targetGroup.is('.jq-dropdown')) {
@@ -96,7 +110,6 @@ if (jQuery) (function ($) {
             if (targetGroup.is('.jq-dropdown-menu')) {
                 // Did we click on an option? If so close it.
                 if (!targetGroup.is('A')) return;
-                hideOtherPanels = false;
             } else {
                 // Nope, it's a panel. Leave it open.
                 return;
@@ -104,33 +117,39 @@ if (jQuery) (function ($) {
         }
 
         // Trigger the event early, so that it might be prevented on the visible popups
-        var hideEvent = jQuery.Event("hide");
+        var hideEvent = jQuery.Event("hide", {'childrenMenusOf' : parentMenu });
 
         $(document).find('.jq-dropdown:visible').each(function () {
             var jqDropdown = $(this);
-            if (jqDropdown.hasClass('jq-dropdown-keep-open')) {
-                jqDropdown.removeClass('jq-dropdown-keep-open');
-            } else {
+            if (parentMenu == null || parseInt(jqDropdown.attr('jq-dropdown-menu-order')) > parentMenu) {
                 jqDropdown
-                    .hide();
-                    .removeData('jq-dropdown-trigger');
-                    .trigger('hide', { jqDropdown: jqDropdown });
+                    .hide()
+                    .removeData('jq-dropdown-trigger')
+                    .trigger('hide', { jqDropdown: jqDropdown, 'childrenMenusOf': parentMenu });
             }
         });
 
-        if(!hideEvent.isDefaultPrevented()) {            
-            // Remove all jq-dropdown-open classes not marked
-            if (hideOtherPanels) {
-                var elementsRemove = $(document).find('.jq-dropdown-open');
-                for (var i = 0; i < elementsRemove.length; i++) {
-                    console.log(elementsRemove[i]);
-                    if ($(elementsRemove[i]).hasClass('jq-dropdown-keep-open')) {
-                        $(elementsRemove[i]).removeClass('jq-dropdown-keep-open');
-                    } else {
-                        $(elementsRemove[i]).removeClass('jq-dropdown-open');
-                    }
+        if(!hideEvent.isDefaultPrevented()) {
+            // Hide any jq-dropdown that may be showing
+            $(document).find('.jq-dropdown:visible').each(function () {
+                var jqDropdown = $(this);
+                if (parentMenu == null || parseInt(jqDropdown.attr('jq-dropdown-menu-order')) > parentMenu) {
+                    jqDropdown
+                        .hide()
+                        .removeData('jq-dropdown-trigger')
+                        .trigger('hide', { jqDropdown: jqDropdown, 'childrenMenusOf': parentMenu });
                 }
-            }
+            });
+            
+            // Remove all jq-dropdown-open classes and jq-dropdown-menu-order attributes
+            $(document).find('.jq-dropdown-open').each(function () {
+                var jqTrigger = $(this);
+                if (parentMenu == null || parseInt(jqTrigger.attr('jq-dropdown-menu-order')) > parentMenu) {
+                    jqTrigger
+                        .removeAttr('jq-dropdown-menu-order')
+                        .removeClass('jq-dropdown-open');
+                }
+            });
         }
     }
 
