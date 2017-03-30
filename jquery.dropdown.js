@@ -62,15 +62,6 @@ if (jQuery) (function ($) {
         var hideEvent = jQuery.Event('hide', {'childrenMenusOf' : maxParent });
         jQuery('body').trigger(hideEvent);
         
-         /*else {
-                elementsKeep.splice(i,1);
-                i--;
-            }
-        console.log("keep! " + dropdownParents[i]);
-                $(elementsKeep[i]).addClass('jq-dropdown-keep-open');
-                $(elementsKeep[i].parentNode).addClass('jq-dropdown-keep-open');
-                doHide = false;*/
-        
         hide(hideEvent);
 
         if (trigger.hasClass('jq-dropdown-disabled')) return;
@@ -115,6 +106,14 @@ if (jQuery) (function ($) {
                 return;
             }
         }
+        
+        // If the dropdown is a child of another dropdown and the parent dropdown is marked to stay open
+        if (parentMenu == null) {
+            var parentToKeep = targetGroup.filter('.jq-dropdown-keep-parent-menu');
+            if (parentToKeep[0] != null) {
+                parentMenu = parseInt($(parentToKeep[0]).attr('jq-dropdown-menu-order'));
+            }
+        }
 
         // Trigger the event early, so that it might be prevented on the visible popups
         var hideEvent = jQuery.Event("hide", {'childrenMenusOf' : parentMenu });
@@ -125,7 +124,7 @@ if (jQuery) (function ($) {
                 jqDropdown
                     .hide()
                     .removeData('jq-dropdown-trigger')
-					.removeAttr('jq-dropdown-menu-order')
+               .removeAttr('jq-dropdown-menu-order')
                     .trigger('hide', { jqDropdown: jqDropdown, 'childrenMenusOf': parentMenu });
             }
         });
@@ -164,7 +163,6 @@ if (jQuery) (function ($) {
 
         // Position the jq-dropdown relative-to-parent...
         if (jqDropdown.hasClass('jq-dropdown-relative')) {
-            console.log("DEF");
             jqDropdown.css({
                 left: jqDropdown.hasClass('jq-dropdown-anchor-right') ?
                     trigger.position().left - (jqDropdown.outerWidth(true) - trigger.outerWidth(true)) - parseInt(trigger.css('margin-right'), 10) + hOffset :
@@ -173,8 +171,6 @@ if (jQuery) (function ($) {
             });
         } else {
             // ...or relative to document
-            console.log("ABC");
-            console.log(jqDropdown);
             jqDropdown.css({
                 left: jqDropdown.hasClass('jq-dropdown-anchor-right') ?
                     trigger.offset().left - (jqDropdown.outerWidth() - trigger.outerWidth()) + hOffset : trigger.offset().left + hOffset,

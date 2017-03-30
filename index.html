@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <link type="text/css" rel="stylesheet" href="jquery.dropdown.min.css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-    <script type="text/javascript" src="jquery.dropdown.js"></script>
+    <script type="text/javascript" src="jquery.dropdown.min.js"></script>
     <style type="text/css">
 
         /* This CSS is for the demo page only */
@@ -106,10 +106,6 @@
         Wanna see what they look like?  <span class="example" data-jq-dropdown="#jq-dropdown-1">Try it!</span>
         Wanna contribute to this project?  <a href="https://github.com/claviska/jquery-dropdown">It’s on GitHub</a>
     </p>
-    <p>
-        Test multi menus:
-        <p class="example" data-jq-dropdown="#jq-dropdown-multiA">Click Me</p>
-    </p>
 
     <h2>Usage</h2>
     <p>
@@ -186,6 +182,13 @@
     <p>
         Dropdowns can have regular HTML, too. <span class="example" data-jq-dropdown="#jq-dropdown-6">Example</span>
     </p>
+	<h3>Submenus</h3>
+	<p>
+		You can add submenus to your dropdowns: <span class="example" data-jq-dropdown="#jq-dropdown-multiA">Click Me</span>
+    </p>
+	<p>
+		Dropdowns can be set up to stay open if an item from a submenu is selected: <span class="example" data-jq-dropdown="#jq-dropdown-multiD">Click Me</span>
+    </p>
 
     <h3>Special Classes</h3>
     <ul>
@@ -194,8 +197,9 @@
         <li>To add a tip to the jq-dropdown, add the <code>jq-dropdown-tip</code> class to the jq-dropdown element</li>
         <li>To make the jq-dropdown anchor to the right, add the <code>jq-dropdown-anchor-right</code> class: <span class="example" data-jq-dropdown="#jq-dropdown-4">Example</span></li>
         <li>To position a jq-dropdown relative to its parent (as opposed to the document), add the <code>jq-dropdown-relative</code> class to the jq-dropdown container</li>
+		<li>To have a dropdown menu stay open when a child submenu option is selected, add the <code>jq-dropdown-keep-parent-menu</code> class to the parent jq-dropdown container</li>
     </ul>
-
+	
     <h2>API</h2>
     <p>
         You probably won’t need these, but they’re there just in case:
@@ -243,8 +247,8 @@
         </li>
         <li>
             <strong>Do they support submenus?</strong><br />
-            No, and they aren’t intended to. That would add a significant amount of complexity to the plugin and is really
-            outside the scope of this project.
+            Yes, <a href="https://github.com/mjgood/jquery-dropdown/tree/child-menus-mjgood">mjgood</a>'s branch adds some
+			support for them.
         </li>
         <li>
             <strong>Can I get rid of the tips?</strong><br />
@@ -274,30 +278,59 @@
     <!-- Remember to put your jq-dropdown menus before your ending BODY tag -->
     <div id="jq-dropdown-multiA" class="jq-dropdown jq-dropdown-tip">
         <ul class="jq-dropdown-menu">
-            <li><p class="example" data-jq-dropdown="#jq-dropdown-multiB">Item 1</p></li>
-            <li><p class="example" data-jq-dropdown="#jq-dropdown-multiB">Item 2</p></li>
-            <li><p class="example" data-jq-dropdown="#jq-dropdown-multiB">Item 3</p></li>
+            <li><p class="example" style="margin-left:20px;" data-jq-dropdown="#jq-dropdown-multiC">Item 1</p></li>
+            <li><p class="example" style="margin-left:20px;" data-jq-dropdown="#jq-dropdown-multiC">Item 2</p></li>
+            <li><p class="example" style="margin-left:20px;" data-jq-dropdown="#jq-dropdown-multiC">Item 3</p></li>
             <li class="jq-dropdown-divider"></li>
-            <li><p class="example" data-jq-dropdown="#jq-dropdown-multiC">Item 4</p></li>
-            <li><p class="example" data-jq-dropdown="#jq-dropdown-multiC">Item 5</p></li>
-            <li><p class="example" data-jq-dropdown="#jq-dropdown-multiC">Item 6</p></li>
+            <li><p class="example" style="margin-left:20px;" data-jq-dropdown="#jq-dropdown-multiB">Item 4</p></li>
+            <li><p class="example" style="margin-left:20px;" data-jq-dropdown="#jq-dropdown-multiB">Item 5</p></li>
+            <li><p class="example" style="margin-left:20px;" data-jq-dropdown="#jq-dropdown-multiB">Item 6</p></li>
         </ul>
     </div>
     
-    <div id="jq-dropdown-multiC" class="jq-dropdown jq-dropdown-tip">
+    <div id="jq-dropdown-multiB" class="jq-dropdown jq-dropdown-tip">
         <ul class="jq-dropdown-menu">
-            <li><p class="example" data-jq-dropdown="#jq-dropdown-multiB">D</p></li>
-            <li><p class="example" data-jq-dropdown="#jq-dropdown-multiB">E</p></li>
-            <li><p class="example" data-jq-dropdown="#jq-dropdown-multiB">F</p></li>
+            <li><p class="example" style="margin-left:20px;" data-jq-dropdown="#jq-dropdown-multiC">D</p></li>
+            <li><p class="example" style="margin-left:20px;" data-jq-dropdown="#jq-dropdown-multiC">E</p></li>
+            <li><p class="example" style="margin-left:20px;" data-jq-dropdown="#jq-dropdown-multiC">F</p></li>
         </ul>
     </div>
 
-    <div id="jq-dropdown-multiB" class="jq-dropdown jq-dropdown-tip">
+    <div id="jq-dropdown-multiC" class="jq-dropdown jq-dropdown-tip">
         <ul class="jq-dropdown-menu">
             <li><a href="#1">Item 1</a></li>
             <li><a href="#2">Item 2</a></li>
             <li><a href="#3">Item 3</a></li>
         </ul>
+    </div>
+	
+	<div id="jq-dropdown-multiD" class="jq-dropdown jq-dropdown-tip jq-dropdown-keep-parent-menu">
+        <ul class="jq-dropdown-menu">
+            <li><p class="example" style="margin-left:20px;" data-jq-dropdown="#jq-dropdown-multiE">Item 1</p></li>
+            <li><p class="example" style="margin-left:20px;" data-jq-dropdown="#jq-dropdown-multiF">Item 2</p></li>
+            <li><p class="example" style="margin-left:20px;" data-jq-dropdown="#jq-dropdown-multiG">Item 3</p></li>
+        </ul>
+		<div id="jq-dropdown-multiE" class="jq-dropdown jq-dropdown-tip jq-dropdown-relative">
+			<ul class="jq-dropdown-menu">
+				<li><a href="#1">Item 1</a></li>
+				<li><a href="#2">Item 2</a></li>
+				<li><a href="#3">Item 3</a></li>
+			</ul>
+		</div>
+		<div id="jq-dropdown-multiF" class="jq-dropdown jq-dropdown-tip jq-dropdown-relative">
+			<ul class="jq-dropdown-menu">
+				<li><a href="#1">Item 1</a></li>
+				<li><a href="#2">Item 2</a></li>
+				<li><a href="#3">Item 3</a></li>
+			</ul>
+		</div>
+		<div id="jq-dropdown-multiG" class="jq-dropdown jq-dropdown-tip jq-dropdown-relative">
+			<ul class="jq-dropdown-menu">
+				<li><a href="#1">Item 1</a></li>
+				<li><a href="#2">Item 2</a></li>
+				<li><a href="#3">Item 3</a></li>
+			</ul>
+		</div>
     </div>
 
     
