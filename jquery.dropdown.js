@@ -125,6 +125,7 @@ if (jQuery) (function ($) {
                 jqDropdown
                     .hide()
                     .removeData('jq-dropdown-trigger')
+					.removeAttr('jq-dropdown-menu-order')
                     .trigger('hide', { jqDropdown: jqDropdown, 'childrenMenusOf': parentMenu });
             }
         });
