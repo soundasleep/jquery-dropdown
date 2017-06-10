@@ -48,7 +48,7 @@ if (jQuery) (function ($) {
         } else {
             if (trigger !== object.target && $(object.target).hasClass('jq-dropdown-ignore')) return;
         }
-        hide();
+        hide(event);
 
         if (isOpen || trigger.hasClass('jq-dropdown-disabled')) return;
 
@@ -114,14 +114,20 @@ if (jQuery) (function ($) {
     }
 
     function position() {
+        $('.jq-dropdown:visible').each(function() {
+            positionJqDropdown($( this ));
+        });
+    }
+    
+    function positionJqDropdown(jqDropdown) {
 
-        var jqDropdown = $('.jq-dropdown:visible').eq(0),
-            trigger = jqDropdown.data('jq-dropdown-trigger'),
-            hOffset = trigger ? parseInt(trigger.attr('data-horizontal-offset') || 0, 10) : null,
-            vOffset = trigger ? parseInt(trigger.attr('data-vertical-offset') || 0, 10) : null;
-
-        if (jqDropdown.length === 0 || !trigger) return;
-
+        var trigger = jqDropdown.data('jq-dropdown-trigger');
+        
+        if (!trigger) return;
+        
+        var hOffset = parseInt(trigger.attr('data-horizontal-offset') || 0, 10),
+            vOffset = parseInt(trigger.attr('data-vertical-offset') || 0, 10);
+ 
         // Position the jq-dropdown relative-to-parent...
         if (jqDropdown.hasClass('jq-dropdown-relative')) {
             jqDropdown.css({
