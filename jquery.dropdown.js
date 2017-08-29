@@ -63,7 +63,7 @@ if (jQuery) (function ($) {
 
         // Trigger the show callback
         jqDropdown
-            .trigger('show', {
+            .triggerHandler('show', {
                 jqDropdown: jqDropdown,
                 trigger: trigger
             });
@@ -95,7 +95,7 @@ if (jQuery) (function ($) {
             var jqDropdown = $(this);
             jqDropdown
                 .hide()
-                .trigger('hide', { jqDropdown: jqDropdown });
+                .triggerHandler('hide', { jqDropdown: jqDropdown });
         });
 
         if(!hideEvent.isDefaultPrevented()) {
@@ -108,7 +108,7 @@ if (jQuery) (function ($) {
                 jqDropdown
                     .hide()
                     .removeData('jq-dropdown-trigger')
-                    .trigger('hide', { jqDropdown: jqDropdown });
+                    .triggerHandler('hide', { jqDropdown: jqDropdown });
             });
         }
     }
