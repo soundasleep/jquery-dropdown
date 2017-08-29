@@ -75,6 +75,9 @@ if (jQuery) (function ($) {
         // In some cases we don't hide them
         var targetGroup = event ? $(event.target).parents().addBack() : null;
 
+        // Things to hide, by default every dropdown visible
+        var toHide = $(document).find('.jq-dropdown:visible');
+        
         // Are we clicking anywhere in a jq-dropdown?
         if (targetGroup && targetGroup.is('.jq-dropdown')) {
             // Is it a jq-dropdown menu?
@@ -82,23 +85,25 @@ if (jQuery) (function ($) {
                 // Did we click on an option? If so close it.
                 if (!targetGroup.is('A')) return;
             } else {
-                // Nope, it's a panel. Leave it open.
-                return;
-            }
+                // Nope, it's a panel. Leave it open, but close others
+                toHide = $(document).find('.jq-dropdown:visible').not(
+                        $(event.target).parents('.jq-dropdown'));            }
         }
-
+        
         // Hide any jq-dropdown that may be showing
-        $(document).find('.jq-dropdown:visible').each(function () {
+        toHide.each(function () {
             var jqDropdown = $(this);
+            // Remove all jq-dropdown-open classes from things to hide...
+            jqDropdown.find('.jq-dropdown-open').removeClass('jq-dropdown-open');
+            // ... and from whatever caused it to be shown 
+            $(document).find('[data-jq-dropdown=\'#' + this.id + '\']').
+                removeClass('jq-dropdown-open');
+            // Hide and trigger
             jqDropdown
                 .hide()
                 .removeData('jq-dropdown-trigger')
                 .trigger('hide', { jqDropdown: jqDropdown });
         });
-
-        // Remove all jq-dropdown-open classes
-        $(document).find('.jq-dropdown-open').removeClass('jq-dropdown-open');
-
     }
 
     function position() {
