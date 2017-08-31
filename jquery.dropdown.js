@@ -90,14 +90,6 @@ if (jQuery) (function ($) {
         // Trigger the event early, so that it might be prevented on the visible popups
         var hideEvent = jQuery.Event("hide");
 
-        $(document).find('.jq-dropdown:visible').each(function () {
-            var jqDropdown = $(this);
-            jqDropdown
-                .hide()
-                .removeData('jq-dropdown-trigger')
-                .trigger('hide', { jqDropdown: jqDropdown });
-        });
-
         if(!hideEvent.isDefaultPrevented()) {
             // Hide any jq-dropdown that may be showing
             $(document).find('.jq-dropdown:visible').each(function () {
