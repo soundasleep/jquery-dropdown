@@ -49,6 +49,18 @@
   border-bottom: 6px solid white;
   display: inline-block;
 }
+.jq-dropdown.jq-dropdown-above.jq-dropdown-tip:before {
+  top: auto;
+  bottom: -6px;
+  border-bottom: none;
+  border-top: 7px solid #adc3db;
+}
+.jq-dropdown.jq-dropdown-above.jq-dropdown-tip:after {
+  top: auto;
+  bottom: -5px;
+  border-bottom: none;
+  border-top: 6px solid white;
+}
 .jq-dropdown.jq-dropdown-tip.jq-dropdown-anchor-right:before {
   left: auto;
   right: 9px;
