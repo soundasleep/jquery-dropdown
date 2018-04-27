@@ -36,8 +36,7 @@ if (jQuery) (function ($) {
     function show(event, object) {
 
         var trigger = event ? $(this) : object,
-            jqDropdown = $(trigger.attr('data-jq-dropdown')),
-            isOpen = trigger.hasClass('jq-dropdown-open');
+            jqDropdown = $(trigger.attr('data-jq-dropdown'));
 
         // In some cases we don't want to show it
         if (event) {
@@ -48,18 +47,36 @@ if (jQuery) (function ($) {
         } else {
             if (trigger !== object.target && $(object.target).hasClass('jq-dropdown-ignore')) return;
         }
-        hide();
+        
+        // Mark parent jq-dropdown-open classes to be kept
+        var dropdownParents = $(event.target).parents();
+        var maxParent = 0;
+        for (var i = 0; i < dropdownParents.length; i++) {
+            var check = $(dropdownParents[i]).attr('jq-dropdown-menu-order')
+            if (check != null && parseInt(check) > maxParent) {
+                maxParent = parseInt(check);
+            }
+        }
+        
+        // hide all the menus that are a child of the parent
+        var hideEvent = jQuery.Event('hide', {'childrenMenusOf' : maxParent });
+        jQuery('body').trigger(hideEvent);
+        
+        hide(hideEvent);
 
-        if (isOpen || trigger.hasClass('jq-dropdown-disabled')) return;
+        if (trigger.hasClass('jq-dropdown-disabled')) return;
 
         // Show it
         trigger.addClass('jq-dropdown-open');
+        trigger.addClass('jq-dropdown-open');
+        trigger.attr('jq-dropdown-menu-order', (maxParent + 1));
         jqDropdown
+            .attr('jq-dropdown-menu-order', (maxParent + 1))
             .data('jq-dropdown-trigger', trigger)
             .show();
 
         // Position it
-        position();
+        position((maxParent + 1));
 
         // Trigger the show callback
         jqDropdown
@@ -67,13 +84,16 @@ if (jQuery) (function ($) {
                 jqDropdown: jqDropdown,
                 trigger: trigger
             });
-
     }
 
     function hide(event) {
 
         // In some cases we don't hide them
         var targetGroup = event ? $(event.target).parents().addBack() : null;
+        var parentMenu = null;
+        if (event.hasOwnProperty('childrenMenusOf')) {
+            parentMenu = event.childrenMenusOf;
+        }
 
         // Are we clicking anywhere in a jq-dropdown?
         if (targetGroup && targetGroup.is('.jq-dropdown')) {
@@ -86,36 +106,55 @@ if (jQuery) (function ($) {
                 return;
             }
         }
+        
+        // If the dropdown is a child of another dropdown and the parent dropdown is marked to stay open
+        if (parentMenu == null) {
+            var parentToKeep = targetGroup.filter('.jq-dropdown-keep-parent-menu');
+            if (parentToKeep[0] != null) {
+                parentMenu = parseInt($(parentToKeep[0]).attr('jq-dropdown-menu-order'));
+            }
+        }
 
         // Trigger the event early, so that it might be prevented on the visible popups
-        var hideEvent = jQuery.Event("hide");
+        var hideEvent = jQuery.Event("hide", {'childrenMenusOf' : parentMenu });
 
         $(document).find('.jq-dropdown:visible').each(function () {
             var jqDropdown = $(this);
-            jqDropdown
-                .hide()
-                .removeData('jq-dropdown-trigger')
-                .trigger('hide', { jqDropdown: jqDropdown });
+            if (parentMenu == null || parseInt(jqDropdown.attr('jq-dropdown-menu-order')) > parentMenu) {
+                jqDropdown
+                    .hide()
+                    .removeData('jq-dropdown-trigger')
+               .removeAttr('jq-dropdown-menu-order')
+                    .trigger('hide', { jqDropdown: jqDropdown, 'childrenMenusOf': parentMenu });
+            }
         });
 
         if(!hideEvent.isDefaultPrevented()) {
             // Hide any jq-dropdown that may be showing
             $(document).find('.jq-dropdown:visible').each(function () {
                 var jqDropdown = $(this);
-                jqDropdown
-                    .hide()
-                    .removeData('jq-dropdown-trigger')
-                    .trigger('hide', { jqDropdown: jqDropdown });
+                if (parentMenu == null || parseInt(jqDropdown.attr('jq-dropdown-menu-order')) > parentMenu) {
+                    jqDropdown
+                        .hide()
+                        .removeData('jq-dropdown-trigger')
+                        .trigger('hide', { jqDropdown: jqDropdown, 'childrenMenusOf': parentMenu });
+                }
             });
-
-            // Remove all jq-dropdown-open classes
-            $(document).find('.jq-dropdown-open').removeClass('jq-dropdown-open');
+            
+            // Remove all jq-dropdown-open classes and jq-dropdown-menu-order attributes
+            $(document).find('.jq-dropdown-open').each(function () {
+                var jqTrigger = $(this);
+                if (parentMenu == null || parseInt(jqTrigger.attr('jq-dropdown-menu-order')) > parentMenu) {
+                    jqTrigger
+                        .removeAttr('jq-dropdown-menu-order')
+                        .removeClass('jq-dropdown-open');
+                }
+            });
         }
     }
 
-    function position() {
-
-        var jqDropdown = $('.jq-dropdown:visible').eq(0),
+    function position(childMenu) {
+        var jqDropdown = $("[jq-dropdown-menu-order=" + childMenu + "]").filter(".jq-dropdown"),
             trigger = jqDropdown.data('jq-dropdown-trigger'),
             hOffset = trigger ? parseInt(trigger.attr('data-horizontal-offset') || 0, 10) : null,
             vOffset = trigger ? parseInt(trigger.attr('data-vertical-offset') || 0, 10) : null;
